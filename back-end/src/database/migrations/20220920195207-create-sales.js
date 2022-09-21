@@ -23,7 +23,7 @@ module.exports = {
         references: { model: 'users', key: 'id' },
       },
       totalPrice: {
-        type: Sequelize.INTEGER,
+        type: Sequelize.FLOAT,
         field: 'total_price',
         allowNull: false,
       },
