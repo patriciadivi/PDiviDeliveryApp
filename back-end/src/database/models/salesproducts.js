@@ -1,5 +1,6 @@
 "use strict";
 const { Model } = require("sequelize");
+
 module.exports = (sequelize, DataTypes) => {
   class salesProducts extends Model {
     /**
@@ -37,10 +38,14 @@ module.exports = (sequelize, DataTypes) => {
     }
   );
 
-  salesProducts.belongsTo(sales, { foreignKey: "saleId", as: "id" });
-  salesProducts.belongsTo(products, { foreignKey: "productId", as: "id" });
-  // salesProducts.hasMany(sales, { foreignKey: "productId", as: "id" });
-  // salesProducts.hasMany(products, { foreignKey: "saleId", as: "id" });
+  salesProducts.associate = (models) => {
+    models.sales.belongsToMany(models.products, {
+      foreignKey: "saleId", otherKey: "productId", as: "products", through: salesProducts,
+    })
+    models.products.belongsToMany(models.sales, {
+      foreignKey: "productId", otherKey: "saleId", as: "sales", through: salesProducts,
+    })
+  }
 
   return salesProducts;
 };
