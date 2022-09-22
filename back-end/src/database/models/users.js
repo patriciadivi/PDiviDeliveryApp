@@ -1,4 +1,3 @@
-const { sales } = require('./models/');
 'use strict';
 
 const {
@@ -43,12 +42,10 @@ module.exports = (sequelize, DataTypes) => {
     timestamps: false,
   });
 
-  users.belongsTo(sales, { foreignKey: "userId", as: "id" });
-  users.belongsTo(sales, { foreignKey: "sellerId", as: "id" });
-
-  sales.hasMany(users, { foreignKey: "userId", as: "id" });
-  sales.hasMany(users, { foreignKey: "sellerId", as: "id" });
-
+  users.associate = (models) => {
+    models.users.hasMany(models.sales, { foreignKey: "userId", as: "userPurchases" });
+    models.users.hasMany(models.sales, { foreignKey: "sellerId", as: "sellerSales" });
+  }
 
   return users;
 };

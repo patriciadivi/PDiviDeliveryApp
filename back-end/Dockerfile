@@ -1,5 +1,11 @@
-FROM node:16-alpine-3.14
+FROM node:16.14
 
-RUN apt-get update
+WORKDIR /app-backend
 
-RUN apt-get install lsof
+COPY package*.json ./
+
+RUN ["npm", "i"]
+
+COPY . .
+
+CMD ["npm", "run", "dev"]

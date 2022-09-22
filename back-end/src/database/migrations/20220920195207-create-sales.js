@@ -10,20 +10,18 @@ module.exports = {
       },
       userId: {
         type: Sequelize.INTEGER,
-        secondaryKey: true,
         field: 'user_id',
         allowNull: false,
         references: { model: 'users', key: 'id' },
       },
       sellerId: {
         type: Sequelize.INTEGER,
-        secondaryKey: true,
         field: 'seller_id',
         allowNull: false,
         references: { model: 'users', key: 'id' },
       },
       totalPrice: {
-        type: Sequelize.INTEGER,
+        type: Sequelize.FLOAT,
         field: 'total_price',
         allowNull: false,
       },

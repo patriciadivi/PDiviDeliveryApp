@@ -33,7 +33,7 @@ module.exports = (sequelize, DataTypes) => {
       allowNull: false,
     },
     totalPrice: {
-      type: DataTypes.INTEGER,
+      type: DataTypes.FLOAT,
       field: 'total_price',
       allowNull: false,
     },
@@ -61,5 +61,11 @@ module.exports = (sequelize, DataTypes) => {
     modelName: 'sales',
     timestamps: false,
   });
+
+  sales.associate = (models) => {
+    models.sales.belongsTo(models.users, { foreignKey: "userId", as: "customer" });
+    models.sales.belongsTo(models.users, { foreignKey: "sellerId", as: "seller" });
+  }
+
   return sales;
 };
