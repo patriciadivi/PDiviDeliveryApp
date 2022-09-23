@@ -7,13 +7,13 @@ const getUser = async ({ email, password }) => {
   const hashedPassword = md5(password);
   const user = await loginRepository.getUser({ email });
   
-  if (!user) throw new CustomErro(404,'Not found');
+  if (!user) throw new CustomErro(404, 'Not found');
 
-  if (hashedPassword !== user.password) throw new CustomErro(406,'Password mismatch');
+  if (hashedPassword !== user.password) throw new CustomErro(406, 'Password mismatch');
 
-  const token = generateToken(user)
+  const token = generateToken(user);
 
-  return [user, { token : token}];
+  return [user, { token }];
 };
 
 module.exports = {
