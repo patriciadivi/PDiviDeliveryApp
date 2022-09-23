@@ -4,6 +4,6 @@ const loginValidator = require('../middlewares/loginValidator');
 
 const router = express.Router();
 
-router.get('/', loginValidator, (req, res) => loginController.getUser(req, res));
+router.post('/', loginValidator, (req, res) => loginController.getUser(req, res));
 
 module.exports = router;
