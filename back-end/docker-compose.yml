@@ -19,7 +19,7 @@ services:
       MYSQL_USER: root
       MYSQL_PASSWORD: password
       HOSTNAME: db
-      JWT_SECRET: secretJWT
+      JWT_SECRET: jwtVeryDelicious
   db:
     container_name: delivery_db
     image: mysql:8.0.21

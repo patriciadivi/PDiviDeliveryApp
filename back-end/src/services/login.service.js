@@ -1,23 +1,19 @@
 const md5 = require('md5');
+const CustomErro = require('../err/CustomErro');
+const { generateToken } = require('../helpers/generate.token');
 const loginRepository = require('../repositories/login.repository');
 
 const getUser = async ({ email, password }) => {
-  const hashedPassword = md5(password).toUpperCase();
+  const hashedPassword = md5(password);
   const user = await loginRepository.getUser({ email });
+  
+  if (!user) throw new CustomErro(404, 'Not found');
 
-  if (!user) {
-    const erro = new Error('User not found');
-    erro.status = 404;
-    throw erro;
-  }
+  if (hashedPassword !== user.password) throw new CustomErro(406, 'Password mismatch');
 
-  if (hashedPassword !== user.password) {
-    const erro = new Error('Password mismatch');
-    erro.status = 406;
-    throw erro;
-  }
+  const token = generateToken(user);
 
-  return user;
+  return [user, { token }];
 };
 
 module.exports = {
