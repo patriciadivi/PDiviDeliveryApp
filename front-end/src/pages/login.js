@@ -74,7 +74,7 @@ function Login() {
             ? (
               <div data-testid="common_login__element-invalid-email">
                 <p>
-                  404 - Not found
+                  Usuário não encontrado
                 </p>
               </div>
             )
