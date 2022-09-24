@@ -53,7 +53,6 @@ function Login() {
             data-testid="common_login__input-email"
             className="login__login_input"
             type="text"
-            // value={ email }
             name="email"
             onChange={ handleChange }
             placeholder="email"
@@ -64,7 +63,6 @@ function Login() {
             data-testid="common_login__input-password"
             type="password"
             name="password"
-            // value={ password }
             onChange={ handleChange }
             placeholder="Senha"
           />
@@ -91,7 +89,7 @@ function Login() {
           type="submit"
           onClick={ () => navigate('/register') }
         >
-          Ainda não tem conta
+          Ainda não tenho conta
         </button>
       </form>
     </section>
