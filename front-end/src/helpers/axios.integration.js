@@ -8,13 +8,18 @@ const makeRequest = async (url, method, data = null, params = null) => {
     params,
     data,
   };
+  const resultAxios = await axios(config);
+  if (!resultAxios) return false;
+  return resultAxios.data;
 
-  try {
-    const resultAxios = await axios(config);
-    return resultAxios.data;
-  } catch (error) {
-    console.error(error);
-  }
+  // try {
+  // } catch (error) {
+  //   const message = Promise.resolve({ error });
+  //   const result = JSON.parse({ message });
+  //   console.log(result);
+  //   // console.log(message.toJSON(), message);
+  //   return message.toJSON();
+  // }
 };
 
 // makeRequest(
