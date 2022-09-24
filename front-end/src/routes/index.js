@@ -1,6 +1,9 @@
 import { Route, Routes, Navigate } from 'react-router-dom';
 import React from 'react';
 import Login from '../pages/login';
+import Register from '../pages/register';
+import CustomerProducts from '../pages/customerProducts';
+
 // import Catalogo from "../pages/catalago";
 // import CatalogoId from "../components/catalogo.id";
 // import NotFound from "../pages/notfound";
@@ -18,6 +21,8 @@ function IndexRouter() {
     <Routes>
       <Route path="/" element={ <Navigate to="/login" replace /> } />
       <Route path="/login" element={ <Login /> } />
+      <Route path="/register" element={ <Register /> } />
+      <Route path="/customer/products" element={ <CustomerProducts /> } />
       {/* <Route path="/produtos" element={<Catalogo />} />
       <Route path="/catalogo/:id" element={<CatalogoId />} />
       <Route path="/store" element={<Store />} />
