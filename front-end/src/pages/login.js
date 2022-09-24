@@ -74,7 +74,7 @@ function Login() {
             ? (
               <div data-testid="common_login__element-invalid-email">
                 <p>
-                  invalid data
+                  404 - Not found
                 </p>
               </div>
             )
