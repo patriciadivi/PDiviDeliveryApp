@@ -8,7 +8,8 @@ const validator = require('email-validator');
 
 function Login() {
   const { handleChange,
-    email, password, valueButton, setTokenLogin } = useStore((state) => state);
+    email, password, valueButton,
+    setTokenLogin, cleanState } = useStore((state) => state);
   const seis = 6;
   const [dataString, setDataString] = useState(false);
   const navigate = useNavigate();
@@ -35,6 +36,7 @@ function Login() {
       const makeRequestRes = await makeRequest('login', 'post', { email, password });
       setTokenLogin(makeRequestRes[1].token);
       navigate('/customer/products');
+      cleanState();
     } catch (err) {
       console.log(err, '<<<<');
       setDataString(true);
@@ -70,9 +72,11 @@ function Login() {
         {
           (dataString)
             ? (
-              <p data-testid="common_login__element-invalid-email">
-                invalid data
-              </p>
+              <div data-testid="common_login__element-invalid-email">
+                <p>
+                  invalid data
+                </p>
+              </div>
             )
             : null
         }
