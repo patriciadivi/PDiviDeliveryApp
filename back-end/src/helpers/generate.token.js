@@ -1,12 +1,14 @@
 const jwt = require('jsonwebtoken');
-const readSecret = require('./read.secret');
+const jwtKey = require('fs')
+.readFileSync('./jwt.evaluation.key', { encoding: 'utf-8' });
+// const readSecret = require('./read.secret');
 
 require('dotenv').config();
 
 const generateToken = (data) => {
  const { id, name, email, role } = data;
  const newUser = { id, name, email, role };
- const token = jwt.sign({ data: newUser }, readSecret(), {
+ const token = jwt.sign({ data: newUser }, jwtKey, {
   expiresIn: '365d',
   algorithm: 'HS256',
  });

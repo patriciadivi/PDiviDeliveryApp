@@ -1,14 +1,16 @@
-const fs = require('fs');
-const path = require('path');
+// const fs = require('fs');
+// const path = require('path');
+// const jwtKey = require('fs')
+// .readFileSync('./back-end/jwt.evaluation.key', { encoding: 'utf-8' });
 
-const tokenRead = () => {
-  try {
-    const absolutePath = path.resolve('./jwt.evaluation.key');
-    const secret = fs.readFileSync(absolutePath, { encoding: 'utf8' });
-    return secret;
-  } catch (err) {
-    console.log(err.message);
-  }
-};
+// const tokenRead = () => {
+//   try {
+//     const secret = fs.readFileSync(jwtKey, { encoding: 'utf8' });
+//     console.log(secret);
+//     return secret;
+//   } catch (err) {
+//     console.log(err.message);
+//   }
+// };
 
-module.exports = tokenRead;
+// module.exports = tokenRead;
