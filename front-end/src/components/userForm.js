@@ -7,7 +7,7 @@ import makeRequest from '../helpers/axios.integration';
 const validator = require('email-validator');
 
 function UserForm({ page }) {
-  const { handleChange, email, password, name, setTokenLogin, cleanState } = useStore(
+  const { handleChange, email, password, name, cleanState } = useStore(
     (state) => state,
   );
   const seis = 6;
@@ -22,7 +22,8 @@ function UserForm({ page }) {
         email,
         password,
       });
-      setTokenLogin(makeRequestRes[1].token);
+      console.log(makeRequestRes);
+      // setTokenLogin(makeRequestRes[1].token);
       navigate('/customer/products');
       cleanState();
     } catch (err) {
@@ -38,7 +39,8 @@ function UserForm({ page }) {
         email,
         password,
       });
-      setTokenLogin(makeRequestRes[1].token);
+      console.log(makeRequestRes);
+      // setTokenLogin(makeRequestRes[1].token);
       navigate('/customer/products');
       cleanState();
     } catch (err) {
