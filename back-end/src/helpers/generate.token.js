@@ -12,7 +12,7 @@ const generateToken = (data) => {
   expiresIn: '365d',
   algorithm: 'HS256',
  });
-  console.log(jwtKey);
+  // console.log(jwtKey);
   return token;
 };
 
