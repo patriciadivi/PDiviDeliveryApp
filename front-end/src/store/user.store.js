@@ -2,9 +2,9 @@ import create from 'zustand';
 import { devtools } from 'zustand/middleware';
 
 const useStore = create(devtools((set) => ({
+  name: '',
   email: '',
   password: '',
-  display: 'none',
   token: '',
 
   handleChange: ({ target: { name, value } }) => set(() => (
@@ -13,9 +13,9 @@ const useStore = create(devtools((set) => ({
 
   cleanState: () => {
     set(() => ({
+      name: '',
       email: '',
       password: '',
-      display: 'none',
     }));
   },
 

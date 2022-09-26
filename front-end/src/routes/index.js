@@ -1,20 +1,8 @@
 import { Route, Routes, Navigate } from 'react-router-dom';
 import React from 'react';
+import CustomerProducts from '../pages/customerProducts';
 import Login from '../pages/login';
 import Register from '../pages/register';
-import CustomerProducts from '../pages/customerProducts';
-
-// import Catalogo from "../pages/catalago";
-// import CatalogoId from "../components/catalogo.id";
-// import NotFound from "../pages/notfound";
-// import Store from "../pages/store";
-// import Perfil from "../pages/perfil";
-// import Loja from "../pages/loja";
-// import Clube from "../pages/clube";
-// import AppWine from "../pages/appWine";
-// import Eventos from "../pages/eventos";
-// import Ofertas from "../pages/ofertas";
-// import PlanosId from "../pages/planos.id";
 
 function IndexRouter() {
   return (
