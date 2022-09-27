@@ -6,8 +6,8 @@ const getUser = async ({ name, email }) => {
   return userObj;
 };
 
-const postUser = async ({ name, email, password }) => {
-  const newUser = await users.create({ name, email, password });
+const postUser = async ({ name, email, password, role }) => {
+  const newUser = await users.create({ name, email, password, role });
   return newUser;
 };
 
