@@ -13,15 +13,15 @@ const useStore = create(devtools((set) => ({
 
   cleanState: () => {
     set(() => ({
-      name: '',
       email: '',
       password: '',
     }));
   },
 
-  setTokenLogin: (value) => {
+  setTokenLogin: (valueName, valueToken) => {
     set(() => ({
-      token: value,
+      name: valueName,
+      token: valueToken,
     }));
   },
 
