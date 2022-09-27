@@ -18,6 +18,5 @@ const postUser = async ({ name, email, password }) => {
 };
   
 module.exports = {
-  postUser
+  postUser,
 };
-  
