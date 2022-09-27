@@ -3,7 +3,7 @@ const axios = require('axios').default;
 const makeRequest = async (url, method, data = null, params = null) => {
   const config = {
     method,
-    baseURL: 'http://localhost:3005/',
+    baseURL: 'http://localhost:3001/',
     url: `/${url}`,
     params,
     data,
