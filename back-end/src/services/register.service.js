@@ -11,9 +11,15 @@ const postUser = async ({ name, email, password }) => {
     
   if (user) throw new CustomError(409, 'Conflict');
 
-  const newUser = await registerRepository.postUser({ name, email, password: hashedPassword, role: 'customer' });
-  const { id, role } = newUser.dataValues
-  const resultNewUser = { id , name, email, role };
+  const newUser = await registerRepository.postUser({ 
+    name, 
+    email, 
+    password: hashedPassword, 
+    role: 'customer',
+  });
+
+  const { id, role } = newUser.dataValues;
+  const resultNewUser = { id, name, email, role };
     
   const token = generateToken(resultNewUser);
     
