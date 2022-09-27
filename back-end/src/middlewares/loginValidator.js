@@ -11,7 +11,9 @@ const loginValidator = (req, _res, next) => {
 
   if (!emailIsValid) throw new CustomErro(404, 'Email validation failed');
 
-  if (password.length < 6) throw new CustomErro(404, 'Password must be at least 6 characters long');
+  if (password.length < 6) {
+    throw new CustomErro(404, 'Password must be at least 6 characters long');
+  }
 
   next();
 };
