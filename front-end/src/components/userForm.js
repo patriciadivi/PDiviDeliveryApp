@@ -22,8 +22,8 @@ function UserForm({ page }) {
         email,
         password,
       });
-      console.log(makeRequestRes);
-      setTokenLogin(makeRequestRes[1].token);
+      console.log(makeRequestRes[0].name);
+      setTokenLogin(makeRequestRes[0].name, makeRequestRes[1].token);
       navigate('/customer/products');
       cleanState();
     } catch (err) {
@@ -40,7 +40,7 @@ function UserForm({ page }) {
         password,
       });
       console.log(makeRequestRes);
-      setTokenLogin(makeRequestRes[1].token);
+      setTokenLogin(makeRequestRes[0].name, makeRequestRes[1].token);
       navigate('/customer/products');
       cleanState();
     } catch (err) {
@@ -49,9 +49,9 @@ function UserForm({ page }) {
   };
 
   return (
-    <section className="user-login-area">
+    <section className="userLoginArea">
       <form>
-        <h1>Área do usuário</h1>
+        <h1>{ page === 'login' ? 'Área do usuário' : 'Cadastre-se' }</h1>
         {page === 'register' && (
           <label htmlFor="name">
             <input
