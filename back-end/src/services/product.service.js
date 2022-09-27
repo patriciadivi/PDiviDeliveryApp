@@ -1,4 +1,4 @@
-const CustomErro = require('/../err/CustomErro');
+const CustomErro = require('../err/CustomErro');
 const productRepository = require('../repositories/product.repository');
 
 const getAllProducts = async () => {
