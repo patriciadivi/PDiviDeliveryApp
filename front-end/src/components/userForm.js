@@ -53,9 +53,9 @@ function UserForm({ page }) {
       <form>
         <h1>Área do usuário</h1>
         {page === 'register' && (
-          <label htmlFor="name-input">
+          <label htmlFor="name">
             <input
-              data-testid={ `common_${page}__input-email` }
+              data-testid="common_register__input-name"
               type="text"
               name="name"
               onChange={ handleChange }
@@ -63,7 +63,7 @@ function UserForm({ page }) {
             />
           </label>
         )}
-        <label htmlFor="email-input">
+        <label htmlFor="email">
           <input
             data-testid={ `common_${page}__input-email` }
             type="text"
