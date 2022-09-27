@@ -4,7 +4,9 @@ const CustomError = require('../err/CustomError');
 const charactersValidator = (name, password) => {
   if (name.length < 12) throw new CustomError(404, 'Name must be at least 12 characters long');
 
-  if (password.length < 6) throw new CustomError(404, 'Password must be at least 6 characters long');
+  if (password.length < 6) {
+    throw new CustomError(404, 'Password must be at least 6 characters long');
+  }
 };
 
 const registerValidator = (req, _res, next) => {
