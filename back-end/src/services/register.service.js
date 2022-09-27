@@ -12,9 +12,9 @@ const postUser = async ({ name, email, password }) => {
 
   const newUser = await registerRepository.postUser({ name, email, hashedPassword });
     
-  const token = generateToken(user);
+  const token = generateToken(newUser);
     
-  return [newUser, { token }];
+  return [{ token }];
 };
   
 module.exports = {
