@@ -5,7 +5,7 @@ const registerRepository = require('../repositories/register.repository');
 
 const postUser = async ({ name, email, password }) => {
   const hashedPassword = md5(password);
-  const role = 'usuario';
+  const role = 'user';
 
   const user = await registerRepository.getUser({ name, email });
     
