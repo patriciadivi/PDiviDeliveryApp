@@ -1,9 +1,9 @@
-const CustomErro = require('../err/CustomErro');
+const CustomError = require('../err/CustomError');
 const productRepository = require('../repositories/product.repository');
 
 const getAllProducts = async () => {
   const products = await productRepository.getAllProducts();
-  if (!products) throw new CustomErro(404, 'Not found');
+  if (!products) throw new CustomError(404, 'Not found');
   return (products);
 };
 

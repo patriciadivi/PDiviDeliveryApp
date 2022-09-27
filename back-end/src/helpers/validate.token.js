@@ -3,11 +3,11 @@ const jwt = require('jsonwebtoken');
 // const readSecret = require('./read.secret');
 const jwtKey = require('fs')
 .readFileSync('./jwt.evaluation.key', { encoding: 'utf-8' });
-const CustomErro = require('../err/CustomErro');
+const CustomError = require('../err/CustomError');
 
 const validateToken = (token) => new Promise((resolve, _reject) => {
     const verifyToken = jwt.verify(token, jwtKey, (error, decoded) => {
-        if (error) throw new CustomErro(401, 'Expired or invalid token');
+        if (error) throw new CustomError(401, 'Expired or invalid token');
         resolve(decoded);
     });
     return verifyToken;
