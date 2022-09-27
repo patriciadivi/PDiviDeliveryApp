@@ -5,7 +5,7 @@ const charactersValidator = (name, password) => {
   if (name.length < 12) throw new CustomErro(404, 'Name must be at least 12 characters long');
 
   if (password.length < 6) throw new CustomErro(404, 'Password must be at least 6 characters long');
-}
+};
 
 const registerValidator = (req, _res, next) => {
   const { name, email, password } = req.body;
@@ -14,7 +14,7 @@ const registerValidator = (req, _res, next) => {
     throw new CustomErro(400, 'Some data was not reported, please check and try again');
   }
 
-  charactersValidator(name, password)
+  charactersValidator(name, password);
 
   const emailIsValid = validator.validate(email);
 
