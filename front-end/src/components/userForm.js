@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import PropType from 'prop-types';
 import useStore from '../store/user.store';
 import makeRequest from '../helpers/axios.integration';
+import { setLocalStorage } from '../helpers/localStorage';
 
 const validator = require('email-validator');
 
@@ -30,8 +31,13 @@ function UserForm({ page }) {
         email,
         password,
       });
-      // console.log(makeRequestRes[0].name);
-      setTokenLogin(makeRequestRes[0].name, makeRequestRes[1].token);
+      setTokenLogin(makeRequestRes.name, makeRequestRes.role, makeRequestRes.token);
+      setLocalStorage(
+        makeRequestRes.name,
+        makeRequestRes.email,
+        makeRequestRes.role,
+        makeRequestRes.token,
+      );
       navigate('/customer/products');
       cleanState();
     } catch (err) {
@@ -47,9 +53,14 @@ function UserForm({ page }) {
         email,
         password,
       });
-      console.log(makeRequestRes, '<<<<<<<aqui');
-      setTokenRegister(makeRequestRes.token);
+      setTokenRegister(makeRequestRes.role, makeRequestRes.token);
       setDataCreateString(true);
+      setLocalStorage(
+        makeRequestRes.name,
+        makeRequestRes.email,
+        makeRequestRes.role,
+        makeRequestRes.token,
+      );
       navigate('/customer/products');
       cleanState();
     } catch (err) {

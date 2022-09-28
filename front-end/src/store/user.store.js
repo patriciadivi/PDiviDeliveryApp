@@ -1,36 +1,44 @@
 import create from 'zustand';
 import { devtools } from 'zustand/middleware';
 
-const useStore = create(devtools((set) => ({
-  name: '',
-  email: '',
-  password: '',
-  token: '',
+const useStore = create(devtools(
+  (set) => ({
+    name: '',
+    email: '',
+    password: '',
+    role: '',
+    token: '',
 
-  handleChange: ({ target: { name, value } }) => set(() => (
-    { [name]: value }
-  )),
+    handleChange: ({ target: { name, value } }) => set(() => (
+      { [name]: value }
+    )),
 
-  cleanState: () => {
-    set(() => ({
-      email: '',
-      password: '',
-    }));
-  },
+    cleanState: () => {
+      set(() => ({
+        password: '',
+      }));
+    },
 
-  setTokenLogin: (valueName, valueToken) => {
-    set(() => ({
-      name: valueName,
-      token: valueToken,
-    }));
-  },
+    setTokenLogin: (valueName, valueRole, valueToken) => {
+      set(() => ({
+        name: valueName,
+        role: valueRole,
+        token: valueToken,
+      }));
+    },
 
-  setTokenRegister: (valueToken) => {
-    set(() => ({
-      token: valueToken,
-    }));
-  },
+    setTokenRegister: (valueRole, valueToken) => {
+      set(() => ({
+        role: valueRole,
+        token: valueToken,
+      }));
+    },
 
-})));
+  }),
+));
+
+// useStore.persist.setOptions({
+//   name: 'user',
+// });
 
 export default useStore;
