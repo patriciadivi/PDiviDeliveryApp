@@ -7,12 +7,20 @@ import makeRequest from '../helpers/axios.integration';
 const validator = require('email-validator');
 
 function UserForm({ page }) {
-  const { handleChange, email, password, name, cleanState, setTokenLogin } = useStore(
+  const {
+    handleChange,
+    email,
+    password,
+    name,
+    cleanState,
+    setTokenLogin,
+    setTokenRegister } = useStore(
     (state) => state,
   );
   const seis = 6;
   const doze = 12;
   const [dataString, setDataString] = useState(false);
+  const [dataCreateString, setDataCreateString] = useState(false);
   const navigate = useNavigate();
 
   const handleLogin = async (e) => {
@@ -22,7 +30,7 @@ function UserForm({ page }) {
         email,
         password,
       });
-      console.log(makeRequestRes[0].name);
+      // console.log(makeRequestRes[0].name);
       setTokenLogin(makeRequestRes[0].name, makeRequestRes[1].token);
       navigate('/customer/products');
       cleanState();
@@ -39,8 +47,9 @@ function UserForm({ page }) {
         email,
         password,
       });
-      console.log(makeRequestRes);
-      setTokenLogin(makeRequestRes[0].name, makeRequestRes[1].token);
+      console.log(makeRequestRes, '<<<<<<<aqui');
+      setTokenRegister(makeRequestRes.token);
+      setDataCreateString(true);
       navigate('/customer/products');
       cleanState();
     } catch (err) {
@@ -92,6 +101,12 @@ function UserForm({ page }) {
             <p>{page === 'login' ? 'Usuário não encontrado' : 'Dados inválidos'}</p>
           </div>
         ) : null}
+
+        {
+          dataCreateString ? (
+            'Cadastrado com sucesso'
+          ) : null
+        }
         <button
           data-testid={ `common_${page}__button-${page}` }
           type="submit"

@@ -25,6 +25,12 @@ const useStore = create(devtools((set) => ({
     }));
   },
 
+  setTokenRegister: (valueToken) => {
+    set(() => ({
+      token: valueToken,
+    }));
+  },
+
 })));
 
 export default useStore;

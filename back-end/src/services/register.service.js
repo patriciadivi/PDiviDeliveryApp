@@ -18,10 +18,12 @@ const postUser = async ({ name, email, password }) => {
     role: 'customer',
   });
 
-  const { id, role } = newUser.dataValues;
-  const resultNewUser = { id, name, email, role };
+  console.log(newUser, 'newUser');
+
+  // const { id, role } = newUser.dataValues;
+  // const resultNewUser = { id, name, email, role };
     
-  const token = generateToken(resultNewUser);
+  const token = generateToken(newUser);
     
   return { token };
 };
