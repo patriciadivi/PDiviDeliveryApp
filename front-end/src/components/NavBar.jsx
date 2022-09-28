@@ -39,15 +39,13 @@ function NavBar() {
 
         </Link>
         <Link
+          data-testid="customer_products__element-navbar-user-full-name"
           to="/"
         >
-          <span
-            data-testid="customer_products__element-navbar-user-full-name"
-          >
-            Olá,
-            {' '}
-            { name }
-          </span>
+
+          Olá,
+          {' '}
+          { name }
         </Link>
         <Link
           to="/login"
