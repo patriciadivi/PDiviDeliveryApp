@@ -5,7 +5,6 @@ const registerRepository = require('../repositories/register.repository');
 
 const postUser = async ({ name, email, password }) => {
   const hashedPassword = md5(password);
-  // const role = 'customer';
 
   const user = await registerRepository.getUser({ name, email });
     
@@ -18,14 +17,11 @@ const postUser = async ({ name, email, password }) => {
     role: 'customer',
   });
 
-  console.log(newUser, 'newUser');
+  const { id, role } = newUser.dataValues;
+    
+  const token = generateToken({ id, name, email, role });
 
-  // const { id, role } = newUser.dataValues;
-  // const resultNewUser = { id, name, email, role };
-    
-  const token = generateToken(newUser);
-    
-  return { token };
+  return { name, email, role, token };
 };
   
 module.exports = {
