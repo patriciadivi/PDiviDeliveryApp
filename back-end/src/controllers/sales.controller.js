@@ -14,7 +14,15 @@ const getSalesBySellerId = async (req, res) => {
   return res.status(200).json(saleBySeller);
 };
 
+const getOrdersByClientId = async (req, res) => {
+  const { user: { id } } = req;
+  const ordersByClientId = await salesService.getOrdersByClientId(id);
+
+  return res.status(200).json(ordersByClientId);
+};
+
 module.exports = {
     getSalesBySellerId,
     getSaleById,
+    getOrdersByClientId,
 };

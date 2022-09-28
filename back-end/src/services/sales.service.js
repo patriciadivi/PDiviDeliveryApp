@@ -13,7 +13,14 @@ const getSalesBySellerId = async (id) => {
     return (sale);
   };
 
+  const getOrdersByClientId = async (id) => {
+    const order = await salesRepository.getOrdersByClientId(id);
+    if (!order) throw new CustomError(404, 'Not found');
+    return (order);
+  };
+
 module.exports = {
   getSalesBySellerId,
   getSaleById,
+  getOrdersByClientId,
 };
