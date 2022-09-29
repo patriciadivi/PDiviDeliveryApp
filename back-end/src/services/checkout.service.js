@@ -4,10 +4,15 @@ const products = require('../database/models');
 
 const service = require('../repositories/checkout.repository');
 
-const findAllSeller = async (sellerId) => 
-   service.findAllSeller({
-    where: { sellerId },     
-  });
+const findAllSeller = async () => {
+  const userObj = await users.finAll();
+  return userObj;
+};
+
+// const findAllSeller = async (sellerId) => 
+//  service.findAllSeller({
+//  where: { sellerId },     
+// });
 
 const findAllCustomer = async (userId) => 
   service.findAllCustomer({

@@ -1,10 +1,12 @@
 const express = require('express');
+
 const {
   findAll,
   createController,
   findOneController,
   updateController,
 } = require('../controllers/checkout.controller').default;
+
 const loginValidator = require('../middlewares/loginValidator');
 
 const checkoutRouter = express.Router();
