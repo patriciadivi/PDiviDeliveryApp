@@ -55,4 +55,3 @@ module.export = {
   findOne,
   update,
 };
-// testando
