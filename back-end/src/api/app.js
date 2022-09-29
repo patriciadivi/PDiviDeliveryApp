@@ -14,8 +14,8 @@ app.use(express.json());
 app.use(cors());
 app.use('/login', loginRoute);
 app.use('/register', registerRoute);
-app.use('/products', producstRoute);
-app.use('/sale', salesRoute);
+app.use('/customer/products', producstRoute);
+app.use('/sale', salesRoute); // verificar rota!
 app.use('/customer/orders', ordersRoute);
 app.use(globalError.handle);
 

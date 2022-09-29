@@ -36,7 +36,7 @@ module.exports = {
       {
         name: 'Becks 330ml',
         price: 4.99,
-        url_image: 'http://localhost:3001/images/skol_269ml.jpg'
+        url_image: 'http://localhost:3001/images/becks_330ml.jpg'
       },
       {
         name: 'Brahma Duplo Malte 350ml',

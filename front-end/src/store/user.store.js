@@ -1,36 +1,50 @@
 import create from 'zustand';
 import { devtools } from 'zustand/middleware';
 
-const useStore = create(devtools((set) => ({
-  name: '',
-  email: '',
-  password: '',
-  token: '',
+const userStore = create(devtools(
+  (set) => ({
+    name: '',
+    email: '',
+    password: '',
+    role: '',
+    token: '',
 
-  handleChange: ({ target: { name, value } }) => set(() => (
-    { [name]: value }
-  )),
+    handleChange: ({ target: { name, value } }) => set(() => (
+      { [name]: value }
+    )),
 
-  cleanState: () => {
-    set(() => ({
-      email: '',
-      password: '',
-    }));
-  },
+    clearPassword: () => {
+      set(() => ({
+        password: '',
+      }));
+    },
 
-  setTokenLogin: (valueName, valueToken) => {
-    set(() => ({
-      name: valueName,
-      token: valueToken,
-    }));
-  },
+    clearAllState: () => {
+      set(() => ({
+        name: '',
+        email: '',
+        password: '',
+        role: '',
+        token: '',
+      }));
+    },
 
-  setTokenRegister: (valueToken) => {
-    set(() => ({
-      token: valueToken,
-    }));
-  },
+    setTokenLogin: (valueName, valueRole, valueToken) => {
+      set(() => ({
+        name: valueName,
+        role: valueRole,
+        token: valueToken,
+      }));
+    },
 
-})));
+    setTokenRegister: (valueRole, valueToken) => {
+      set(() => ({
+        role: valueRole,
+        token: valueToken,
+      }));
+    },
 
-export default useStore;
+  }),
+));
+
+export default userStore;

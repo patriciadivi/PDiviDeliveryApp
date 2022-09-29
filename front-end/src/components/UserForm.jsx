@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import PropType from 'prop-types';
-import useStore from '../store/user.store';
+import EmailValidator from 'email-validator';
+import userStore from '../store/user.store';
 import makeRequest from '../helpers/axios.integration';
-
-const validator = require('email-validator');
+import { setUserLocalStorage } from '../helpers/localStorage';
 
 function UserForm({ page }) {
   const {
@@ -12,9 +12,9 @@ function UserForm({ page }) {
     email,
     password,
     name,
-    cleanState,
+    clearPassword,
     setTokenLogin,
-    setTokenRegister } = useStore(
+    setTokenRegister } = userStore(
     (state) => state,
   );
   const seis = 6;
@@ -30,10 +30,15 @@ function UserForm({ page }) {
         email,
         password,
       });
-      // console.log(makeRequestRes[0].name);
-      setTokenLogin(makeRequestRes[0].name, makeRequestRes[1].token);
+      setTokenLogin(makeRequestRes.name, makeRequestRes.role, makeRequestRes.token);
+      setUserLocalStorage(
+        makeRequestRes.name,
+        makeRequestRes.email,
+        makeRequestRes.role,
+        makeRequestRes.token,
+      );
       navigate('/customer/products');
-      cleanState();
+      clearPassword();
     } catch (err) {
       setDataString(true);
     }
@@ -47,11 +52,16 @@ function UserForm({ page }) {
         email,
         password,
       });
-      console.log(makeRequestRes, '<<<<<<<aqui');
-      setTokenRegister(makeRequestRes.token);
+      setTokenRegister(makeRequestRes.role, makeRequestRes.token);
       setDataCreateString(true);
+      setUserLocalStorage(
+        makeRequestRes.name,
+        makeRequestRes.email,
+        makeRequestRes.role,
+        makeRequestRes.token,
+      );
       navigate('/customer/products');
-      cleanState();
+      clearPassword();
     } catch (err) {
       setDataString(true);
     }
@@ -79,6 +89,7 @@ function UserForm({ page }) {
             name="email"
             onChange={ handleChange }
             placeholder="Email"
+            autoComplete="email"
           />
         </label>
         <label htmlFor="password-input">
@@ -88,6 +99,7 @@ function UserForm({ page }) {
             name="password"
             onChange={ handleChange }
             placeholder="Senha"
+            autoComplete={ page === 'login' ? 'current-password' : 'new-password' }
           />
         </label>
         {dataString ? (
@@ -113,8 +125,8 @@ function UserForm({ page }) {
           onClick={ page === 'login' ? handleLogin : handleRegister }
           disabled={
             page === 'login'
-              ? !(validator.validate(email) && password.length >= seis)
-              : !(validator.validate(email)
+              ? !(EmailValidator.validate(email) && password.length >= seis)
+              : !(EmailValidator.validate(email)
                 && password.length >= seis
                 && name.length >= doze)
           }
@@ -124,7 +136,7 @@ function UserForm({ page }) {
         { page === 'login' ? (
           <button
             data-testid="common_login__button-register"
-            type="submit"
+            type="button"
             onClick={ () => navigate('/register') }
           >
             Ainda não tenho conta

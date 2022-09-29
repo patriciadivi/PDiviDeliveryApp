@@ -1,25 +1,16 @@
 const axios = require('axios').default;
 
-const makeRequest = async (url, method, data = null, params = null) => {
+const makeRequest = async (url, method, data = null, token = null) => {
   const config = {
-    method,
-    baseURL: 'http://localhost:3001/',
     url: `/${url}`,
-    params,
+    method,
     data,
+    headers: { Authorization: token },
+    baseURL: 'http://localhost:3001/',
   };
   const resultAxios = await axios(config);
   if (!resultAxios) return false;
   return resultAxios.data;
-
-  // try {
-  // } catch (error) {
-  //   const message = Promise.resolve({ error });
-  //   const result = JSON.parse({ message });
-  //   console.log(result);
-  //   // console.log(message.toJSON(), message);
-  //   return message.toJSON();
-  // }
 };
 
 // makeRequest(
@@ -31,5 +22,3 @@ const makeRequest = async (url, method, data = null, params = null) => {
 // ).then((res) => console.log(res.data));
 
 module.exports = makeRequest;
-
-// const fetch = await makeRequest('register', post, <body, headers>, 1)
