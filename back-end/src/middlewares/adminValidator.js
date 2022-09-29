@@ -12,9 +12,9 @@ const charactersValidator = (name, password) => {
 };
 
 const registerAdminValidator = (req, _res, next) => {
-  const { name, email, password, role } = req.body;
+  const { name, email, password } = req.body;
 
-  if (!name || !email || !password || !role) {
+  if (!name || !email || !password ) {
     throw new CustomError(400, 'Some data was not reported, please check and try again');
   }
 

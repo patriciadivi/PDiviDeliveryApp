@@ -30,12 +30,12 @@ const postUser = async ({ name, email, password, role }) => {
 
 const getUser = async ({ name, email, role }) => {
     const users = await adminRepository.getUser({ name, email, role });
-    return users
+    return users;
 };
 
-const deleteUser = async ({ name, email, role }) => {
+const deleteUser = async ({ name, email }) => {
     const deletedUser = await adminRepository.deleteUser({ name, email });
-    return deleteUser
+    return deletedUser;
 };
   
 module.exports = {

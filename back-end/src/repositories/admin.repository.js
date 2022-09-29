@@ -7,9 +7,9 @@ const getUser = async ({ name, email, role }) => {
       const userObj = await users.findOne({ where: { [Op.or]: [{ name }, { email }] } });
       return userObj;
     default:
-      const users = await users.findAll({ where: { [Op.not]: [role === 'administrator'] } });
-      return users;
-  };
+      const usersArray = await users.findAll({ where: { [Op.not]: [(role === 'administrator')] } });
+      return usersArray;
+  }
 };
 
 const postUser = async ({ name, email, password, role }) => {
