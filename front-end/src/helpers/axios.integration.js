@@ -11,15 +11,6 @@ const makeRequest = async (url, method, data = null, params = null) => {
   const resultAxios = await axios(config);
   if (!resultAxios) return false;
   return resultAxios.data;
-
-  // try {
-  // } catch (error) {
-  //   const message = Promise.resolve({ error });
-  //   const result = JSON.parse({ message });
-  //   console.log(result);
-  //   // console.log(message.toJSON(), message);
-  //   return message.toJSON();
-  // }
 };
 
 // makeRequest(
@@ -31,5 +22,3 @@ const makeRequest = async (url, method, data = null, params = null) => {
 // ).then((res) => console.log(res.data));
 
 module.exports = makeRequest;
-
-// const fetch = await makeRequest('register', post, <body, headers>, 1)
