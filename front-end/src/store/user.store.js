@@ -1,7 +1,7 @@
 import create from 'zustand';
 import { devtools } from 'zustand/middleware';
 
-const useStore = create(devtools(
+const userStore = create(devtools(
   (set) => ({
     name: '',
     email: '',
@@ -13,9 +13,19 @@ const useStore = create(devtools(
       { [name]: value }
     )),
 
-    cleanState: () => {
+    clearPassword: () => {
       set(() => ({
         password: '',
+      }));
+    },
+
+    clearAllState: () => {
+      set(() => ({
+        name: '',
+        email: '',
+        password: '',
+        role: '',
+        token: '',
       }));
     },
 
@@ -37,8 +47,4 @@ const useStore = create(devtools(
   }),
 ));
 
-// useStore.persist.setOptions({
-//   name: 'user',
-// });
-
-export default useStore;
+export default userStore;

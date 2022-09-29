@@ -1,65 +1,46 @@
 import React from 'react';
-// import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
-
-import useStore from '../store/user.store';
+import { removeUserLocalStorage } from '../helpers/localStorage';
+import userStore from '../store/user.store';
 
 function NavBar() {
-  const { name } = useStore((state) => state);
+  const { name, clearAllState } = userStore((state) => state);
 
-  // useEffect(() => {
-  //   const descryToken = decryptTokenfunc(token);
-  //   console.log(descryToken);
-  // });
+  const handleLogout = () => {
+    clearAllState();
+    removeUserLocalStorage();
+  };
 
   return (
     <div>
       <nav>
         <Link
+          data-testid="customer_products__element-navbar-link-products"
           to="/customer/products"
         >
-          <span
-            data-testid="customer_products__element-navbar-link-products"
-          >
-            Produtos
-
-          </span>
-
+          Produtos
         </Link>
-
         <Link
-          to="/login"
+          data-testid="customer_products__element-navbar-link-orders"
+          to="/customer/orders"
         >
-          <span
-            data-testid="customer_products__element-navbar-link-orders"
-          >
-            Meus Pedidos
-
-          </span>
-
+          Meus Pedidos
         </Link>
-        <Link
+        <p
           data-testid="customer_products__element-navbar-user-full-name"
-          to="/"
         >
-
           Olá,
           {' '}
           { name }
-        </Link>
+        </p>
         <Link
-          to="/login"
+          to="/"
+          onClick={ handleLogout }
+          data-testid="customer_products__element-navbar-link-logout"
         >
-          <span
-            data-testid="customer_products__element-navbar-link-logout"
-          >
-            Sair
-
-          </span>
-
+          Sair
         </Link>
       </nav>
-      <h1>NavBar</h1>
     </div>
   );
 }

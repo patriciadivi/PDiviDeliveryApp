@@ -1,12 +1,12 @@
-export const setLocalStorage = (name, email, role, token) => {
+export const setUserLocalStorage = (name, email, role, token) => {
   localStorage.setItem('user', JSON.stringify({ name, email, role, token }));
 };
 
-export const getLocalStorage = () => {
+export const getUserLocalStorage = () => {
   const localStorageGET = JSON.parse(localStorage.getItem('user'));
   return localStorageGET;
 };
 
-export const removeLocalStorage = () => {
+export const removeUserLocalStorage = () => {
   localStorage.removeItem('user');
 };
