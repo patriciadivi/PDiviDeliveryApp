@@ -21,7 +21,7 @@ module.exports = {
         references: { model: 'users', key: 'id' },
       },
       totalPrice: {
-        type: Sequelize.FLOAT,
+        type: Sequelize.DECIMAL(10,2),
         field: 'total_price',
         allowNull: false,
       },

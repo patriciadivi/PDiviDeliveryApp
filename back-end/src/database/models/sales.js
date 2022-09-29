@@ -33,7 +33,7 @@ module.exports = (sequelize, DataTypes) => {
       allowNull: false,
     },
     totalPrice: {
-      type: DataTypes.FLOAT,
+      type: DataTypes.DECIMAL(10,2),
       field: 'total_price',
       allowNull: false,
     },
