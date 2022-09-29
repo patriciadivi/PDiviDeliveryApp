@@ -1,6 +1,6 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import React, { useEffect } from 'react';
-import { Link } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import { v4 as uuidv4 } from 'uuid';
 import NavBar from '../components/NavBar';
 import { getUserLocalStorage } from '../helpers/localStorage';
@@ -8,8 +8,10 @@ import ProductCard from '../components/ProductCard';
 import productsStore from '../store/products.store';
 
 function CustomerProducts() {
+  const navigate = useNavigate();
   const { token } = getUserLocalStorage();
   const {
+    cart,
     products,
     totalPrice,
     fetchProducts,
@@ -19,7 +21,7 @@ function CustomerProducts() {
     fetchProducts(token);
   }, []);
 
-  const total = totalPrice();
+  const total = totalPrice().replace(/\./, ',');
 
   return (
     <div>
@@ -30,12 +32,14 @@ function CustomerProducts() {
               <ProductCard product={ product } />
             </div>
           ))}
-      <Link
-        data-testid="customer_products__checkout-bottom-value"
-        to="/customer/checkout"
+      <button
+        data-testid="customer_products__checkout-button-cart"
+        type="button"
+        onClick={ () => navigate('/costumer/checkout') }
+        disabled={ !cart.length > 0 }
       >
-        {total.replace(/\./, ',')}
-      </Link>
+        <p data-testid="customer_products__checkout-bottom-value">{total}</p>
+      </button>
     </div>
   );
 }

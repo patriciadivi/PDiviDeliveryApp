@@ -9,6 +9,7 @@ function ProductCard({ product }) {
     addToCart,
     subFromCart,
     editQuantity,
+    removeFromCart,
   } = productsStore((state) => state);
   const itemQuantity = cart.find((item) => item.id === id);
 
@@ -32,9 +33,13 @@ function ProductCard({ product }) {
       </button>
       <input
         data-testid={ `customer_products__input-card-quantity-${id}` }
-        type="number"
-        defaultValue={ itemQuantity?.quantity || null }
-        onBlur={ ({ target: { value } }) => editQuantity(id, Number(value)) }
+        type="text"
+        name="quantity"
+        defaultValue={ itemQuantity?.quantity || 0 }
+        onChange={ ({ target: { value } }) => (
+          value === 0
+            ? removeFromCart(id)
+            : editQuantity(id, Number(value))) }
       />
       <button
         data-testid={ `customer_products__button-card-add-item-${id}` }
