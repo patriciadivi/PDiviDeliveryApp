@@ -1,10 +1,11 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { removeUserLocalStorage } from '../helpers/localStorage';
+import { getUserLocalStorage, removeUserLocalStorage } from '../helpers/localStorage';
 import userStore from '../store/user.store';
 
 function NavBar() {
-  const { name, clearAllState } = userStore((state) => state);
+  const { clearAllState } = userStore((state) => state);
+  const { name } = getUserLocalStorage();
 
   const handleLogout = () => {
     clearAllState();
