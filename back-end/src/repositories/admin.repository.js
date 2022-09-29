@@ -2,14 +2,13 @@ const { Op } = require('sequelize');
 const { users } = require('../database/models');
 
 const getUser = async ({ name, email, role }) => {
-  switch (role) {
-    case !role:
-      const userObj = await users.findOne({ where: { [Op.or]: [{ name }, { email }] } });
-      return userObj;
-    default:
-      const usersArray = await users.findAll({ where: { [Op.not]: [(role === 'administrator')] } });
-      return usersArray;
+  if (!role) {
+    const userObj = await users.findOne({ where: { [Op.or]: [{ name }, { email }] } });
+    return userObj;
   }
+
+  const usersArray = await users.findAll({ where: { [Op.not]: [role === 'administrator'] } });
+  return usersArray;
 };
 
 const postUser = async ({ name, email, password, role }) => {
