@@ -11,38 +11,33 @@ const userStore = create(devtools(
 
     handleChange: ({ target: { name, value } }) => set(() => (
       { [name]: value }
-    )),
+    ), false, 'handleChange'),
 
-    clearPassword: () => {
-      set(() => ({
-        password: '',
-      }));
-    },
+    clearPassword: () => set(() => (
+      { password: '' }
+    ), false, 'clearPassword'),
 
-    clearAllState: () => {
-      set(() => ({
+    clearAllState: () => set(() => (
+      {
         name: '',
         email: '',
         password: '',
         role: '',
         token: '',
-      }));
-    },
+      }), false, 'clearAllState'),
 
-    setTokenLogin: (valueName, valueRole, valueToken) => {
-      set(() => ({
+    setTokenLogin: (valueName, valueRole, valueToken) => set(() => (
+      {
         name: valueName,
         role: valueRole,
         token: valueToken,
-      }));
-    },
+      }), false, 'setTokenLogin'),
 
-    setTokenRegister: (valueRole, valueToken) => {
-      set(() => ({
+    setTokenRegister: (valueRole, valueToken) => set(() => (
+      {
         role: valueRole,
         token: valueToken,
-      }));
-    },
+      }), false, 'setTokenRegister'),
 
   }),
 ));
