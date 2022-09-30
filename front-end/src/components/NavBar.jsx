@@ -27,13 +27,13 @@ function NavBar() {
         >
           Meus Pedidos
         </Link>
-        <p
+        <span
           data-testid="customer_products__element-navbar-user-full-name"
         >
           Olá,
           {' '}
           { name }
-        </p>
+        </span>
         <Link
           to="/"
           onClick={ handleLogout }
