@@ -43,13 +43,12 @@ function ProductCard({ product }) {
       </button>
       <input
         data-testid={ `customer_products__input-card-quantity-${id}` }
-        type="text"
+        type="number"
         name="quantity"
-        value={ itemQuantity.quantity }
-        onChange={ ({ target: { value } }) => (
-          quantity === 0
-            ? setQuantity(0)
-            : setQuantity(Number(value))) }
+        value={ itemQuantity.quantity || 0 }
+        onChange={ ({ target: { value } }) => (Number(value) < 0
+          ? setQuantity(0)
+          : setQuantity(Number(value))) }
       />
       <button
         data-testid={ `customer_products__button-card-add-item-${id}` }
