@@ -2,18 +2,17 @@ const express = require('express');
 
 const {
   findAll,
-  createController,
+  // createController,
   findOneController,
   updateController,
-} = require('../controllers/checkout.controller').default;
-
-const loginValidator = require('../middlewares/loginValidator');
+} = require('../controllers/checkout.controller');
+const tokenValidator = require('../middlewares/token.validator');
 
 const checkoutRouter = express.Router();
 
-checkoutRouter.get('/', loginValidator, findAll);
-checkoutRouter.get('/:id', loginValidator, findOneController);
-checkoutRouter.post('/', loginValidator, createController);
-checkoutRouter.put('/:id', loginValidator, updateController);
+checkoutRouter.post('/', tokenValidator, findAll);
+checkoutRouter.post('/:id', tokenValidator, findOneController);
+// checkoutRouter.post('/', tokenValidator, createController);
+checkoutRouter.put('/:id', tokenValidator, updateController);
 
 module.exports = checkoutRouter;
