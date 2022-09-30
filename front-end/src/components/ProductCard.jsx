@@ -1,17 +1,27 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import PropType from 'prop-types';
 import productsStore from '../store/products.store';
 
 function ProductCard({ product }) {
   const { id, name, price, urlImage } = product;
+  const [quantity, setQuantity] = useState(0);
   const {
+    insertOnCart,
+    updateCart,
+    products,
     cart,
-    addToCart,
-    subFromCart,
-    editQuantity,
-    removeFromCart,
   } = productsStore((state) => state);
-  const itemQuantity = cart.find((item) => item.id === id);
+  const menosUm = -1;
+  const cartItemIndex = cart.findIndex((item) => item.id === id);
+  const item = products.find((p) => p.id === id);
+  const itemQuantity = { ...item, quantity };
+
+  useEffect(() => {
+    if (cartItemIndex === menosUm && quantity === 1) {
+      return insertOnCart(itemQuantity);
+    }
+    return updateCart(id, itemQuantity);
+  }, [quantity]);
 
   return (
     <div>
@@ -27,7 +37,7 @@ function ProductCard({ product }) {
       <button
         data-testid={ `customer_products__button-card-rm-item-${id}` }
         type="button"
-        onClick={ () => subFromCart(id) }
+        onClick={ () => (quantity === 0 ? setQuantity(0) : setQuantity(quantity - 1)) }
       >
         -
       </button>
@@ -35,16 +45,16 @@ function ProductCard({ product }) {
         data-testid={ `customer_products__input-card-quantity-${id}` }
         type="text"
         name="quantity"
-        defaultValue={ itemQuantity?.quantity || 0 }
+        value={ itemQuantity.quantity }
         onChange={ ({ target: { value } }) => (
-          value === 0
-            ? removeFromCart(id)
-            : editQuantity(id, Number(value))) }
+          quantity === 0
+            ? setQuantity(0)
+            : setQuantity(Number(value))) }
       />
       <button
         data-testid={ `customer_products__button-card-add-item-${id}` }
         type="button"
-        onClick={ () => addToCart(id) }
+        onClick={ () => setQuantity(quantity + 1) }
       >
         +
       </button>

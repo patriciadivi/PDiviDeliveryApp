@@ -1,7 +1,7 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import React, { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { v4 as uuidv4 } from 'uuid';
+// import { v4 as uuidv4 } from 'uuid';
 import NavBar from '../components/NavBar';
 import { getUserLocalStorage } from '../helpers/localStorage';
 import ProductCard from '../components/ProductCard';
@@ -13,7 +13,6 @@ function CustomerProducts() {
   const {
     cart,
     products,
-    totalPrice,
     fetchProducts,
   } = productsStore((state) => state);
 
@@ -21,24 +20,30 @@ function CustomerProducts() {
     fetchProducts(token);
   }, []);
 
-  const total = totalPrice().replace(/\./, ',');
+  const totalPrice = cart
+    .reduce((prev, curr) => prev + (parseFloat(curr.price) * curr.quantity), 0)
+    .toFixed(2).replace(/\./g, ',');
 
   return (
     <div>
       <NavBar />
       { products.length > 0
           && products.map((product) => (
-            <div key={ uuidv4() }>
+            <div key={ product.id }>
               <ProductCard product={ product } />
             </div>
           ))}
       <button
-        data-testid="customer_products__checkout-button-cart"
+        data-testid="customer_products__button-cart"
         type="button"
-        onClick={ () => navigate('/costumer/checkout') }
-        disabled={ !cart.length > 0 }
+        onClick={ () => navigate('/customer/checkout') }
+        disabled={ totalPrice === '0,00' }
       >
-        <p data-testid="customer_products__checkout-bottom-value">{total}</p>
+        <p
+          data-testid="customer_products__checkout-bottom-value"
+        >
+          {`Ver Carrinho: R$ ${totalPrice}`}
+        </p>
       </button>
     </div>
   );
