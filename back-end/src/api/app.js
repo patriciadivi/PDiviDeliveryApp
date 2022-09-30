@@ -17,6 +17,7 @@ app.use('/register', registerRoute);
 app.use('/customer/products', producstRoute);
 app.use('/sale', salesRoute); // verificar rota!
 app.use('/customer/orders', ordersRoute);
+app.use('/images', express.static('public'));
 app.use(globalError.handle);
 
 module.exports = app;
