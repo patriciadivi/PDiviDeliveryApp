@@ -1,6 +1,5 @@
 const salesProducts = require('../database/models');
-const users = require('../database/models');
-const products = require('../database/models');
+const { users } = require('../database/models');
 const checkoutRepository = require('../repositories/checkout.repository');
 
 const findAll = async (role) => {
@@ -8,15 +7,9 @@ const findAll = async (role) => {
   return usersObj;
 };
 
-const create = async ({ userId, sellerId, deliveryAddress, deliveryNumber }) => {
-  let totalPrice = products.reduce((sum, product) => sum + (+product.price * product.quantity), 0);
-  totalPrice = totalPrice.toFixed(2);
-  const newSale = await checkoutRepository
-  .create({ userId, sellerId, totalPrice, deliveryAddress, deliveryNumber });
-  const { id: saleId } = newSale.dataValues;
-  const saleProducts = products.map(({ id, quantity }) => ({ saleId, productId: id, quantity }));
-  await salesProducts.bulkCreate(saleProducts);
-  return newSale.dataValues;
+const createOrder = async (orderObj) => {
+  const order = await checkoutRepository.createOrder(orderObj);
+  return order;
 };
 
 const findOne = async (id) => checkoutRepository.findOne({ where: { id },
@@ -39,7 +32,7 @@ const update = async (id, userRole) => {
 
 module.exports = {
   findAll,
-  create,
+  createOrder,
   findOne,
   update,
 };

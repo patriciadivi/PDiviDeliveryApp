@@ -6,11 +6,9 @@ const findAll = async (req, res) => {
   return res.status(200).json(result);
 };
 
-const createController = async (req, res) => {
-  const { id: userId } = req.user;
-  const saleData = { userId, ...req.body };
-  const newSale = await checkoutService.create(saleData);
-  return res.status(201).json(newSale);
+const createOrder = async (req, res) => {
+  const order = await checkoutService.createOrder(req.body);
+  return res.status(201).json(order);
 };
 
 const findOneController = async (req, res) => {
@@ -28,7 +26,7 @@ const updateController = async (req, res) => {
 
 module.exports = {
   findAll,
-  createController,
+  createOrder,
   findOneController,
   updateController,
 };
