@@ -2,6 +2,7 @@
 const {
   Model
 } = require('sequelize');
+
 module.exports = (sequelize, DataTypes) => {
   class sales extends Model {
     /**
@@ -50,16 +51,20 @@ module.exports = (sequelize, DataTypes) => {
     saleDate: {
       type: DataTypes.DATE,
       field: 'sale_date',
+      defaultValue: DataTypes.NOW,
       allowNull: false,
     },
     status: {
       type: DataTypes.STRING,
+      defaultValue: 'Pendente',
       allowNull: false,
     },
   }, {
     sequelize,
     modelName: 'sales',
-    timestamps: false,
+    timestamps: true,
+    createdAt: 'saleDate',
+    updatedAt: false,
   });
 
   sales.associate = (models) => {

@@ -19,16 +19,30 @@ module.exports = (sequelize, DataTypes) => {
         primaryKey: true,
         field: "sale_id",
         allowNull: false,
+        references: {
+          model: "sales",
+          key: "id",
+        },
+        onDelete: "CASCADE",
+        onUpdate: "CASCADE",
       },
       productId: {
         type: DataTypes.INTEGER,
         primaryKey: true,
         field: "product_id",
         allowNull: false,
+        references: {
+          model: "products",
+          key: "id",
+        },
+        onDelete: "CASCADE",
+        onUpdate: "CASCADE",
       },
       quantity: {
         type: DataTypes.INTEGER,
         allowNull: false,
+        onDelete: "CASCADE",
+        onUpdate: "CASCADE",
       },
     },
     {
@@ -41,10 +55,10 @@ module.exports = (sequelize, DataTypes) => {
 
   salesProducts.associate = (models) => {
     models.sales.belongsToMany(models.products, {
-      foreignKey: "saleId", otherKey: "productId", as: "products", through: salesProducts,
+      foreignKey: "productId", otherKey: "saleId", as: "products", through: "salesProducts",
     })
     models.products.belongsToMany(models.sales, {
-      foreignKey: "productId", otherKey: "saleId", as: "sales", through: salesProducts,
+      foreignKey: "saleId", otherKey: "productId", as: "sales", through: "salesProducts",
     })
   }
 

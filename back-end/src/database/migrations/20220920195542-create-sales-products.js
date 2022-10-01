@@ -8,6 +8,8 @@ module.exports = {
         field: 'sale_id',
         allowNull: false,
         references: { model: 'sales', key: 'id' },
+        onDelete: "CASCADE",
+        onUpdate: "CASCADE",
       },
       productId: {
         type: Sequelize.INTEGER,
@@ -15,22 +17,14 @@ module.exports = {
         field: 'product_id',
         allowNull: false,
         references: { model: 'products', key: 'id' },
+        onDelete: "CASCADE",
+        onUpdate: "CASCADE",
       },
       quantity: {
         type: Sequelize.INTEGER,
         allowNull: false,
       },
     })
-    // .then(() => queryInterface.addConstraint(
-    //   'salesProducts',
-    //   ['saleId', 'productId'],
-    //   {
-    //     type: 'primary key',
-    //     name: 'sales_products_pkey'
-    //   }
-    // ))
-    // This is a special way of composite primary key creation
-
   },
   async down(queryInterface, Sequelize) {
     await queryInterface.dropTable('sales_products');
