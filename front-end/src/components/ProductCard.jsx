@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import React, { useState, useEffect } from 'react';
 import PropType from 'prop-types';
 import productsStore from '../store/products.store';
@@ -17,7 +18,7 @@ function ProductCard({ product }) {
   const itemQuantity = { ...item, quantity };
 
   useEffect(() => {
-    if (cartItemIndex === menosUm && quantity === 1) {
+    if (cartItemIndex === menosUm && quantity > 0) {
       return insertOnCart(itemQuantity);
     }
     return updateCart(id, itemQuantity);
@@ -46,7 +47,7 @@ function ProductCard({ product }) {
         type="number"
         name="quantity"
         value={ itemQuantity.quantity || 0 }
-        onChange={ ({ target: { value } }) => (Number(value) < 0
+        onChange={ ({ target: { value } }) => (Number(value) <= 0
           ? setQuantity(0)
           : setQuantity(Number(value))) }
       />

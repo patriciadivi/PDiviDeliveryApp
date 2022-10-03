@@ -7,19 +7,19 @@ module.exports = {
         user_id: '1',
         seller_id: '2',
         total_price: '99.89',
-        delivery_address: 'Rua das Flores, 123',
-        delivery_number: '1',
+        delivery_address: 'Rua das Flores',
+        delivery_number: '123',
         sale_date: new Date(),
-        status: 'pending'
+        status: 'Pendente'
       },
       {
         user_id: '1',
         seller_id: '2',
         total_price: '1231',
-        delivery_address: 'Av Paulista, 999',
-        delivery_number: '2',
+        delivery_address: 'Av Paulista',
+        delivery_number: '495',
         sale_date: new Date(),
-        status: 'fulfilled'
+        status: 'Entregue'
       },
   ], {});
 

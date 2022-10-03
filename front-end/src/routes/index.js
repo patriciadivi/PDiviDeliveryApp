@@ -3,7 +3,7 @@ import React from 'react';
 import CustomerProducts from '../pages/customerProducts';
 import Login from '../pages/login';
 import Register from '../pages/register';
-// import CustomerOrders from '../pages/customerOrders';
+import CustomerCheckout from '../pages/customerCheckout';
 
 function IndexRouter() {
   return (
@@ -12,7 +12,7 @@ function IndexRouter() {
       <Route path="/login" element={ <Login /> } />
       <Route path="/register" element={ <Register /> } />
       <Route path="/customer/products" element={ <CustomerProducts /> } />
-      {/* <Route path="/customer/orders" element={ <CustomerOrders /> } /> */}
+      <Route path="/customer/checkout" element={ <CustomerCheckout /> } />
       {/* <Route path="/produtos" element={<Catalogo />} />
       <Route path="/catalogo/:id" element={<CatalogoId />} />
       <Route path="/store" element={<Store />} />

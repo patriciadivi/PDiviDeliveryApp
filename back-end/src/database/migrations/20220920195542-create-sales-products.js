@@ -4,35 +4,29 @@ module.exports = {
     await queryInterface.createTable('sales_products', {
       saleId: {
         type: Sequelize.INTEGER,
+        allowNull: false,
         primaryKey: true,
         field: 'sale_id',
-        allowNull: false,
         references: { model: 'sales', key: 'id' },
+        onDelete: "CASCADE",
+        onUpdate: "CASCADE",
       },
       productId: {
         type: Sequelize.INTEGER,
+        allowNull: false,
         primaryKey: true,
         field: 'product_id',
-        allowNull: false,
         references: { model: 'products', key: 'id' },
+        onDelete: "CASCADE",
+        onUpdate: "CASCADE",
       },
       quantity: {
-        type: Sequelize.INTEGER,
         allowNull: false,
+        type: Sequelize.INTEGER,
       },
     })
-    // .then(() => queryInterface.addConstraint(
-    //   'salesProducts',
-    //   ['saleId', 'productId'],
-    //   {
-    //     type: 'primary key',
-    //     name: 'sales_products_pkey'
-    //   }
-    // ))
-    // This is a special way of composite primary key creation
-
   },
-  async down(queryInterface, Sequelize) {
+  async down(queryInterface, _Sequelize) {
     await queryInterface.dropTable('sales_products');
   }
 };

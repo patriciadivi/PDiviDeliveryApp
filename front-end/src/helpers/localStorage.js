@@ -1,5 +1,5 @@
-export const setUserLocalStorage = (name, email, role, token) => {
-  localStorage.setItem('user', JSON.stringify({ name, email, role, token }));
+export const setUserLocalStorage = (data) => {
+  localStorage.setItem('user', JSON.stringify({ ...data }));
 };
 
 export const getUserLocalStorage = () => {
