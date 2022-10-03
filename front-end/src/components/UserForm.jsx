@@ -14,9 +14,7 @@ function UserForm({ page }) {
     name,
     clearPassword,
     setTokenLogin,
-    setTokenRegister } = userStore(
-    (state) => state,
-  );
+    setTokenRegister } = userStore((state) => state);
   const seis = 6;
   const doze = 12;
   const [dataString, setDataString] = useState(false);
@@ -30,13 +28,8 @@ function UserForm({ page }) {
         email,
         password,
       });
-      setTokenLogin(makeRequestRes.name, makeRequestRes.role, makeRequestRes.token);
-      setUserLocalStorage(
-        makeRequestRes.name,
-        makeRequestRes.email,
-        makeRequestRes.role,
-        makeRequestRes.token,
-      );
+      setTokenLogin(makeRequestRes);
+      setUserLocalStorage(makeRequestRes);
       navigate('/customer/products');
       clearPassword();
     } catch (err) {
@@ -52,14 +45,10 @@ function UserForm({ page }) {
         email,
         password,
       });
-      setTokenRegister(makeRequestRes.role, makeRequestRes.token);
+      const { id, role, token } = makeRequestRes;
+      setTokenRegister(id, role, token);
       setDataCreateString(true);
-      setUserLocalStorage(
-        makeRequestRes.name,
-        makeRequestRes.email,
-        makeRequestRes.role,
-        makeRequestRes.token,
-      );
+      setUserLocalStorage(makeRequestRes);
       navigate('/customer/products');
       clearPassword();
     } catch (err) {

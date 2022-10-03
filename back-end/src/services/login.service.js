@@ -6,7 +6,7 @@ const loginRepository = require('../repositories/login.repository');
 const getUser = async ({ email, password }) => {
   const hashedPassword = md5(password);
   const user = await loginRepository.getUser({ email });
-  
+
   if (!user) throw new CustomError(404, 'Not found');
 
   if (hashedPassword !== user.password) throw new CustomError(404, 'Password mismatch');
@@ -14,7 +14,7 @@ const getUser = async ({ email, password }) => {
 
   const token = generateToken({ id, name, email, role });
 
-  return { name, email, role, token };
+  return { id, name, email, role, token };
 };
 
 module.exports = {

@@ -7,23 +7,23 @@ const postUser = async ({ name, email, password }) => {
   const hashedPassword = md5(password);
 
   const user = await registerRepository.getUser({ name, email });
-    
+
   if (user) throw new CustomError(409, 'Conflict');
 
-  const newUser = await registerRepository.postUser({ 
-    name, 
-    email, 
-    password: hashedPassword, 
+  const newUser = await registerRepository.postUser({
+    name,
+    email,
+    password: hashedPassword,
     role: 'customer',
   });
 
   const { id, role } = newUser.dataValues;
-    
+
   const token = generateToken({ id, name, email, role });
 
-  return { name, email, role, token };
+  return { id, name, email, role, token };
 };
-  
+
 module.exports = {
   postUser,
 };
