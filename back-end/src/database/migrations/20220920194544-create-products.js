@@ -9,21 +9,21 @@ module.exports = {
         type: Sequelize.INTEGER
       },
       name: {
-        type: Sequelize.STRING,
         allowNull: false,
+        type: Sequelize.STRING(255),
       },
       price: {
-        type: Sequelize.DECIMAL(10,2),
         allowNull: false,
+        type: Sequelize.DECIMAL(10,2),
       },
       urlImage: {
-        type: Sequelize.STRING,
+        type: Sequelize.STRING(255),
         field: 'url_image',
         allowNull: false,
       }
     });
   },
-  async down(queryInterface, Sequelize) {
+  async down(queryInterface, _Sequelize) {
     await queryInterface.dropTable('products');
   }
 };
