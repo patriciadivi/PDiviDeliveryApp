@@ -28,7 +28,7 @@ function Checkout({ page }) {
 
   const handleCheckout = async () => {
     const order = await makeRequest('checkout/order', 'post', {
-      userId: id, sellerId, totalPrice, deliveryAddress, deliveryNumber }, token);
+      userId: id, sellerId, totalPrice, deliveryAddress, deliveryNumber, cart }, token);
     console.log(order);
     setOrderId(order.id);
     setDisplay(true);
