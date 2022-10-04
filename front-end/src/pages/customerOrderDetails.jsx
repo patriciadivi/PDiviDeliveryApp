@@ -10,11 +10,11 @@ import ordersStore from '../store/orders.store';
 function CustomerOrderDetail() {
   const { orderId } = useParams();
   const { token } = getUserLocalStorage();
-  const { fetchOrderDetail } = ordersStore((state) => state);
+  const { orderDetail, fetchOrderDetail } = ordersStore((state) => state);
 
   useEffect(() => {
     fetchOrderDetail(orderId, token);
-  }, []);
+  }, [orderDetail]);
 
   return (
     <div>
