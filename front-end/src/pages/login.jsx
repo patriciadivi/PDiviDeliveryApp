@@ -2,6 +2,7 @@
 import React, { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import UserForm from '../components/UserForm';
+import LoginSComponent from '../styles/login.style';
 import { getUserLocalStorage } from '../helpers/localStorage';
 
 function Login() {
@@ -15,9 +16,9 @@ function Login() {
   }, []);
 
   return (
-    <div>
+    <LoginSComponent>
       <UserForm page="login" />
-    </div>
+    </LoginSComponent>
   );
 }
 

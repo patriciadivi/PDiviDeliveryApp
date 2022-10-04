@@ -5,6 +5,7 @@ import EmailValidator from 'email-validator';
 import userStore from '../store/user.store';
 import makeRequest from '../helpers/axios.integration';
 import { setUserLocalStorage } from '../helpers/localStorage';
+import veryD from '../img/veryDeliciuosLogo.png';
 
 function UserForm({ page }) {
   const {
@@ -72,8 +73,9 @@ function UserForm({ page }) {
   };
 
   return (
-    <section className="userLoginArea">
+    <section>
       <form>
+        <img src={ veryD } alt="very-deliciuos-logo" />
         <h1>{ page === 'login' ? 'Área do usuário' : 'Cadastre-se' }</h1>
         {page === 'register' && (
           <label htmlFor="name">
@@ -96,7 +98,7 @@ function UserForm({ page }) {
             autoComplete="email"
           />
         </label>
-        <label htmlFor="password-input">
+        <label htmlFor="password">
           <input
             data-testid={ `common_${page}__input-password` }
             type="password"
@@ -118,34 +120,36 @@ function UserForm({ page }) {
           </div>
         ) : null}
 
-        {
-          dataCreateString ? (
-            'Cadastrado com sucesso'
-          ) : null
-        }
-        <button
-          data-testid={ `common_${page}__button-${page}` }
-          type="submit"
-          onClick={ page === 'login' ? handleLogin : handleRegister }
-          disabled={
-            page === 'login'
-              ? !(EmailValidator.validate(email) && password.length >= seis)
-              : !(EmailValidator.validate(email)
+        <div>
+          {
+            dataCreateString ? (
+              'Cadastrado com sucesso'
+            ) : null
+          }
+          <button
+            data-testid={ `common_${page}__button-${page}` }
+            type="submit"
+            onClick={ page === 'login' ? handleLogin : handleRegister }
+            disabled={
+              page === 'login'
+                ? !(EmailValidator.validate(email) && password.length >= seis)
+                : !(EmailValidator.validate(email)
                 && password.length >= seis
                 && name.length >= doze)
-          }
-        >
-          { page === 'login' ? 'Login' : 'Cadastrar' }
-        </button>
-        { page === 'login' ? (
-          <button
-            data-testid="common_login__button-register"
-            type="button"
-            onClick={ () => navigate('/register') }
+            }
           >
-            Ainda não tenho conta
+            { page === 'login' ? 'Login' : 'Cadastrar' }
           </button>
-        ) : null}
+          { page === 'login' ? (
+            <button
+              data-testid="common_login__button-register"
+              type="button"
+              onClick={ () => navigate('/register') }
+            >
+              Ainda não tenho conta
+            </button>
+          ) : null}
+        </div>
       </form>
     </section>
   );
