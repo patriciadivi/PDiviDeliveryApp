@@ -8,6 +8,7 @@ import CustomerOrderDetails from '../pages/customerOrderDetails';
 import CustomerOrders from '../pages/customerOrders';
 import SellerOrders from '../pages/sellerOrders';
 import SellerOrderDetails from '../pages/sellerOrderDetails';
+import AdminManage from '../pages/adminManage';
 
 function IndexRouter() {
   return (
@@ -21,10 +22,8 @@ function IndexRouter() {
       <Route path="/customer/orders/:orderId" element={ <CustomerOrderDetails /> } />
       <Route path="/seller/orders" element={ <SellerOrders /> } />
       <Route path="/seller/orders/:orderId" element={ <SellerOrderDetails /> } />
-      {/* <Route path="/customer/orders/" element={ <CustomerOrders /> } /> */}
-      {/* <Route path="/produtos" element={<Catalogo />} />
-      <Route path="/catalogo/:id" element={<CatalogoId />} />
-      <Route path="*" element={<NotFound />} /> */}
+      <Route path="/admin/manage" element={ <AdminManage /> } />
+      {/* <Route path="*" element={<NotFound />} /> */}
     </Routes>
   );
 }
