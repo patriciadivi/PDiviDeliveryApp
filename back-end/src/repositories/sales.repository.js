@@ -23,8 +23,14 @@ const getOrdersByUserId = async (userId) => {
   return ordersObj;
 };
 
+const patchOrderStatusById = async (id, status) => {
+  const patchedOrder = await Sales.update({ status }, { where: { id } });
+  return patchedOrder;
+};
+
 module.exports = {
   getSalesBySellerId,
   getSaleById,
   getOrdersByUserId,
+  patchOrderStatusById,
 };

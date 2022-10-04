@@ -21,8 +21,17 @@ const getOrdersByUserId = async (req, res) => {
   return res.status(200).json(ordersByClientId);
 };
 
+const patchOrderStatusById = async (req, res) => {
+  const { orderId } = req.params;
+  const { status } = req.body;
+  await salesService.patchOrderStatusById(orderId, status);
+
+  res.status(200).json({ message: 'Success, order status updated' });
+};
+
 module.exports = {
     getSalesBySellerId,
     getSaleById,
     getOrdersByUserId,
+    patchOrderStatusById,
 };

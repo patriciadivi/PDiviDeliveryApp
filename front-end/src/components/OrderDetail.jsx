@@ -1,10 +1,20 @@
 import React from 'react';
 import moment from 'moment';
 import PropType from 'prop-types';
+// import { useNavigate } from 'react-router-dom';
 import ordersStore from '../store/orders.store';
+import makeRequest from '../helpers/axios.integration';
+import { getUserLocalStorage } from '../helpers/localStorage';
 
 function OrderDetail({ page }) {
   const { orderDetail } = ordersStore((state) => state);
+  const { token } = getUserLocalStorage();
+  // const navigate = useNavigate();
+
+  const handleClick = async (newStatus) => {
+    await makeRequest(`sales/${orderDetail.id}`, 'put', { status: newStatus }, token);
+    // navigate(0);
+  };
 
   const testId = `${page}_order_details__element-order-details-label-delivery-status`;
   return (
@@ -39,7 +49,7 @@ function OrderDetail({ page }) {
             type="button"
             data-testid="seller_order_details__button-preparing-check"
             disabled={ orderDetail.status !== 'Pendente' }
-            // onClick={}
+            onClick={ () => handleClick('Preparando') }
           >
             PREPARAR PEDIDO
           </button>
@@ -47,7 +57,7 @@ function OrderDetail({ page }) {
             type="button"
             data-testid="seller_order_details__button-dispatch-check"
             disabled={ orderDetail.status !== 'Preparando' }
-            // onClick={}
+            onClick={ () => handleClick('Em Trânsito') }
           >
             SAIU PARA ENTREGA
           </button>
@@ -58,7 +68,7 @@ function OrderDetail({ page }) {
           type="button"
           data-testid="customer_order_details__button-delivery-check"
           disabled={ orderDetail.status !== 'Em Trânsito' }
-          // onClick={}
+          onClick={ () => handleClick('Entregue') }
         >
           Marcar como entregue
         </button>

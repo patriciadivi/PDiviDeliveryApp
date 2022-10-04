@@ -19,8 +19,15 @@ const getSalesBySellerId = async (sellerId) => {
     return orders;
   };
 
+  const patchOrderStatusById = async (orderId, status) => {
+    const patchedOrder = await salesRepository.patchOrderStatusById(orderId, status);
+    if (!patchedOrder) throw new CustomError(404, 'Not found');
+    return patchedOrder;
+  };
+
 module.exports = {
   getSalesBySellerId,
   getSaleById,
   getOrdersByUserId,
+  patchOrderStatusById,
 };

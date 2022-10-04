@@ -10,5 +10,8 @@ router.get('/:orderId', tokenValidator, (req, res) => {
 router.post('/seller', tokenValidator, (req, res) => {
   salesController.getSalesBySellerId(req, res);
 });
+router.put('/:orderId', tokenValidator, (req, res) => {
+  salesController.patchOrderStatusById(req, res);
+});
 
 module.exports = router;
