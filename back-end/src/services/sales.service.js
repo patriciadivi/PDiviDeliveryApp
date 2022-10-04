@@ -1,14 +1,14 @@
 const CustomError = require('../err/CustomError');
 const salesRepository = require('../repositories/sales.repository');
 
-// const getSalesBySellerId = async (id) => {
-//     const sale = await salesRepository.getSalesBySellerId(id);
-//     if (!sale) throw new CustomError(404, 'Not found');
-//     return (sale);
-//   };
+const getSalesBySellerId = async (sellerId) => {
+    const sale = await salesRepository.getSalesBySellerId(sellerId);
+    if (!sale) throw new CustomError(404, 'Not found');
+    return (sale);
+};
 
-  const getSaleById = async (id) => {
-    const sale = await salesRepository.getSaleById(id);
+  const getSaleById = async (orderId) => {
+    const sale = await salesRepository.getSaleById(orderId);
     if (!sale) throw new CustomError(404, 'Not found');
     return (sale);
   };
@@ -20,7 +20,7 @@ const salesRepository = require('../repositories/sales.repository');
   };
 
 module.exports = {
-  // getSalesBySellerId,
+  getSalesBySellerId,
   getSaleById,
   getOrdersByUserId,
 };
