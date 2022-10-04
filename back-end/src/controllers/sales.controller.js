@@ -7,22 +7,22 @@ const getSaleById = async (req, res) => {
   return res.status(200).json(sale);
 };
 
-const getSalesBySellerId = async (req, res) => {
-  const { user: { id } } = req;
-  const saleBySeller = await salesService.getSalesBySellerId(id);
+// const getSalesBySellerId = async (req, res) => {
+//   const { user: { id } } = req;
+//   const saleBySeller = await salesService.getSalesBySellerId(id);
 
-  return res.status(200).json(saleBySeller);
-};
+//   return res.status(200).json(saleBySeller);
+// };
 
-const getOrdersByClientId = async (req, res) => {
-  const { user: { id } } = req;
-  const ordersByClientId = await salesService.getOrdersByClientId(id);
+const getOrdersByUserId = async (req, res) => {
+  const { userId } = req.body;
+  const ordersByClientId = await salesService.getOrdersByUserId(userId);
 
   return res.status(200).json(ordersByClientId);
 };
 
 module.exports = {
-    getSalesBySellerId,
+    // getSalesBySellerId,
     getSaleById,
-    getOrdersByClientId,
+    getOrdersByUserId,
 };

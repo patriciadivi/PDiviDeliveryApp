@@ -12,9 +12,9 @@ const createOrder = async (sale) => {
     //     saleId: saleObj.dataValues.id,
     //     productId: item.id,
     //     quantity: item.quantity,
-    //   })));
+  // })));
 
-    // await Promise.all(cartPromises);
+  // await Promise.all(cartPromises);
   const resultCreateSale = sequelize.transaction(async (trans) => {
     const saleObj = await Sales.create({
       userId,

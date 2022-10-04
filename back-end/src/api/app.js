@@ -18,7 +18,7 @@ app.use('/register', registerRoute);
 app.use('/customer/products', producstRoute);
 app.use('/customer/orders', ordersRoute);
 app.use('/checkout', checkoutRoute);
-app.use('/sale', salesRoute);
+app.use('/sales', salesRoute);
 app.use('/images', express.static('public'));
 app.use(globalError.handle);
 
