@@ -6,16 +6,17 @@ import makeRequest from '../helpers/axios.integration';
 const checkoutStore = create(devtools(
   (set) => ({
     sellers: [],
-    orderId: '',
+    order: {},
 
     fetchSellers: async (token) => {
       const response = await makeRequest('checkout', 'post', { role: 'seller' }, token);
       set({ sellers: await response }, false, 'fetchSellers');
     },
 
-    setOrderId: (id) => {
-      set({ orderId: id });
+    setOrder: (obj) => {
+      set({ order: obj });
     },
+
   }),
 ));
 

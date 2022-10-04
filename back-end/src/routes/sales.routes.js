@@ -2,9 +2,16 @@ const express = require('express');
 const salesController = require('../controllers/sales.controller');
 const tokenValidator = require('../middlewares/token.validator');
 
-const router = express.Router({ mergeParams: true });
+const salesRouter = express.Router();
 
-router.get('/seller', tokenValidator, (req, res) => salesController.getSalesBySellerId(req, res));
-router.get('/:id', tokenValidator, (req, res) => salesController.getSaleById(req, res));
+salesRouter.get('/:orderId', tokenValidator, (req, res) => {
+  salesController.getSaleById(req, res);
+});
+salesRouter.post('/seller', tokenValidator, (req, res) => {
+  salesController.getSalesBySellerId(req, res);
+});
+salesRouter.put('/:orderId', tokenValidator, (req, res) => {
+  salesController.patchOrderStatusById(req, res);
+});
 
-module.exports = router;
+module.exports = salesRouter;
