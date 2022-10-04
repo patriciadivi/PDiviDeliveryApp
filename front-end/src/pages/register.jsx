@@ -1,11 +1,12 @@
 import React from 'react';
 import UserForm from '../components/UserForm';
+import RegisterSComponent from '../styles/register.style';
 
 function Register() {
   return (
-    <div>
+    <RegisterSComponent>
       <UserForm page="register" />
-    </div>
+    </RegisterSComponent>
   );
 }
 

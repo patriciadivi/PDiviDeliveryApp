@@ -1,11 +1,12 @@
 import React from 'react';
 import UserForm from '../components/UserForm';
+import LoginSComponent from '../styles/login.style';
 
 function Login() {
   return (
-    <div>
+    <LoginSComponent>
       <UserForm page="login" />
-    </div>
+    </LoginSComponent>
   );
 }
 
