@@ -26,7 +26,7 @@ function CustomerProducts() {
 
   return (
     <div>
-      <NavBar />
+      <NavBar page="customer" />
       { products.length > 0
           && products.map((product) => (
             <div key={ product.id }>

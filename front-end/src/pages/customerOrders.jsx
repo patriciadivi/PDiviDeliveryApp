@@ -16,7 +16,7 @@ function CustomerOrders() {
 
   return (
     <div>
-      <NavBar />
+      <NavBar page="customer" />
       { orders.length > 0 ? (
         orders.map((o) => (
           <Link to={ `/customer/orders/${o.id}` } key={ o.id }>
@@ -29,18 +29,18 @@ function CustomerOrders() {
               </p>
             </div>
             <p
-              data-testid={ `customer_orders__element-delivery-status-${id}` }
+              data-testid={ `customer_orders__element-delivery-status-${o.id}` }
             >
               {o.status}
             </p>
             <div>
               <p
-                data-testid={ `customer_orders__element-order-date-${id}` }
+                data-testid={ `customer_orders__element-order-date-${o.id}` }
               >
                 {moment(o.saleDate).format('DD/MM/YYYY')}
               </p>
               <p
-                data-testid={ `customer_orders__element-card-price-${id}` }
+                data-testid={ `customer_orders__element-card-price-${o.id}` }
               >
                 {`R$ ${o.totalPrice.replace(/\./g, ',')}`}
               </p>

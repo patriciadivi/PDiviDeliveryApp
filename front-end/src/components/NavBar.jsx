@@ -1,9 +1,10 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import PropType from 'prop-types';
 import { getUserLocalStorage, removeUserLocalStorage } from '../helpers/localStorage';
 import userStore from '../store/user.store';
 
-function NavBar() {
+function NavBar({ page }) {
   const { clearAllState } = userStore((state) => state);
   const { name } = getUserLocalStorage();
 
@@ -15,24 +16,25 @@ function NavBar() {
   return (
     <div>
       <nav>
-        <Link
-          data-testid="customer_products__element-navbar-link-products"
-          to="/customer/products"
-        >
-          Produtos
-        </Link>
+        { page === 'customer' && (
+          <Link
+            data-testid="customer_products__element-navbar-link-products"
+            to="/customer/products"
+          >
+            Produtos
+          </Link>
+        )}
         <Link
           data-testid="customer_products__element-navbar-link-orders"
-          to="/customer/orders"
+          to={ `/${page}/orders` }
         >
-          Meus Pedidos
+          {page === 'customer' && 'Meus Pedidos'}
+          {page === 'seller' && 'Pedidos'}
         </Link>
         <span
           data-testid="customer_products__element-navbar-user-full-name"
         >
-          Olá,
-          {' '}
-          { name }
+          {`Olá, ${name}`}
         </span>
         <Link
           to="/"
@@ -45,5 +47,9 @@ function NavBar() {
     </div>
   );
 }
+
+NavBar.propTypes = {
+  page: PropType.string.isRequired,
+};
 
 export default NavBar;

@@ -4,8 +4,8 @@ import NavBar from '../components/NavBar';
 function CustomerCheckout() {
   return (
     <div>
-      <NavBar />
-      <Checkout page="checkout" />
+      <NavBar page="customer" />
+      <Checkout />
     </div>
   );
 }

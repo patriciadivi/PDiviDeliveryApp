@@ -18,10 +18,10 @@ function CustomerOrderDetail() {
 
   return (
     <div>
-      <NavBar />
+      <NavBar page="customer" />
       <h2>Detalhes do Pedido</h2>
-      <OrderDetail />
-      <Details />
+      <OrderDetail page="customer" />
+      <Details page="customer" />
     </div>
   );
 }
