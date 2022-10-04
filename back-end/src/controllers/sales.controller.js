@@ -1,28 +1,37 @@
 const salesService = require('../services/sales.service');
 
 const getSaleById = async (req, res) => {
-  const { id } = req.params;
-  const sale = await salesService.getSaleById(id);
+  const { orderId } = req.params;
+  const sale = await salesService.getSaleById(orderId);
 
   return res.status(200).json(sale);
 };
 
 const getSalesBySellerId = async (req, res) => {
-  const { user: { id } } = req;
-  const saleBySeller = await salesService.getSalesBySellerId(id);
+  const { sellerId } = req.body;
+  const saleBySeller = await salesService.getSalesBySellerId(sellerId);
 
   return res.status(200).json(saleBySeller);
 };
 
-const getOrdersByClientId = async (req, res) => {
-  const { user: { id } } = req;
-  const ordersByClientId = await salesService.getOrdersByClientId(id);
+const getOrdersByUserId = async (req, res) => {
+  const { userId } = req.body;
+  const ordersByClientId = await salesService.getOrdersByUserId(userId);
 
   return res.status(200).json(ordersByClientId);
+};
+
+const patchOrderStatusById = async (req, res) => {
+  const { orderId } = req.params;
+  const { status } = req.body;
+  await salesService.patchOrderStatusById(orderId, status);
+
+  res.status(200).json({ message: 'Success, order status updated' });
 };
 
 module.exports = {
     getSalesBySellerId,
     getSaleById,
-    getOrdersByClientId,
+    getOrdersByUserId,
+    patchOrderStatusById,
 };

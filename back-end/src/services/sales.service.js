@@ -1,26 +1,33 @@
 const CustomError = require('../err/CustomError');
 const salesRepository = require('../repositories/sales.repository');
 
-const getSalesBySellerId = async (id) => {
-    const sale = await salesRepository.getSalesBySellerId(id);
+const getSalesBySellerId = async (sellerId) => {
+    const sale = await salesRepository.getSalesBySellerId(sellerId);
+    if (!sale) throw new CustomError(404, 'Not found');
+    return (sale);
+};
+
+  const getSaleById = async (orderId) => {
+    const sale = await salesRepository.getSaleById(orderId);
     if (!sale) throw new CustomError(404, 'Not found');
     return (sale);
   };
 
-  const getSaleById = async (id) => {
-    const sale = await salesRepository.getSaleById(id);
-    if (!sale) throw new CustomError(404, 'Not found');
-    return (sale);
+  const getOrdersByUserId = async (userId) => {
+    const orders = await salesRepository.getOrdersByUserId(userId);
+    if (!orders) throw new CustomError(404, 'Not found');
+    return orders;
   };
 
-  const getOrdersByClientId = async (id) => {
-    const order = await salesRepository.getOrdersByClientId(id);
-    if (!order) throw new CustomError(404, 'Not found');
-    return (order);
+  const patchOrderStatusById = async (orderId, status) => {
+    const patchedOrder = await salesRepository.patchOrderStatusById(orderId, status);
+    if (!patchedOrder) throw new CustomError(404, 'Not found');
+    return patchedOrder;
   };
 
 module.exports = {
   getSalesBySellerId,
   getSaleById,
-  getOrdersByClientId,
+  getOrdersByUserId,
+  patchOrderStatusById,
 };

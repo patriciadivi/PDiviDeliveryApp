@@ -12,9 +12,9 @@ const createOrder = async (sale) => {
     //     saleId: saleObj.dataValues.id,
     //     productId: item.id,
     //     quantity: item.quantity,
-    //   })));
+  // })));
 
-    // await Promise.all(cartPromises);
+  // await Promise.all(cartPromises);
   const resultCreateSale = sequelize.transaction(async (trans) => {
     const saleObj = await Sales.create({
       userId,
@@ -38,16 +38,7 @@ const createOrder = async (sale) => {
   return resultCreateSale;
 };
 
-const findOne = async ({ id }) => {
-  const userObj = await Sales.findOne({ where: { id } });
-  return userObj;
-};
-
-const update = async (id, userRole) => Sales.findOne(id, userRole);
-
 module.exports = {
   findAll,
   createOrder,
-  findOne,
-  update,
 };

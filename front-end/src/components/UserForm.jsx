@@ -22,6 +22,20 @@ function UserForm({ page }) {
   const [dataCreateString, setDataCreateString] = useState(false);
   const navigate = useNavigate();
 
+  const handleRoute = (role) => {
+    switch (role) {
+    case 'administrator':
+      navigate('/admin/manage');
+      break;
+    case 'seller':
+      navigate('/seller/orders');
+      break;
+    default:
+      navigate('/customer/products');
+      break;
+    }
+  };
+
   const handleLogin = async (e) => {
     e.preventDefault();
     try {
@@ -29,9 +43,10 @@ function UserForm({ page }) {
         email,
         password,
       });
+      const { role } = makeRequestRes;
       setTokenLogin(makeRequestRes);
       setUserLocalStorage(makeRequestRes);
-      navigate('/customer/products');
+      handleRoute(role);
       clearPassword();
     } catch (err) {
       setDataString(true);
@@ -50,7 +65,7 @@ function UserForm({ page }) {
       setTokenRegister(id, role, token);
       setDataCreateString(true);
       setUserLocalStorage(makeRequestRes);
-      navigate('/customer/products');
+      handleRoute(role);
       clearPassword();
     } catch (err) {
       setDataString(true);

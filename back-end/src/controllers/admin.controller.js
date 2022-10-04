@@ -1,13 +1,13 @@
 const adminServices = require('../services/admin.service');
 
-const postUser = async (req, res) => {
-  const user = await adminServices.postUser(req.body);
-  return res.status(201).json(user);
+const getUsers = async (_req, res) => {
+  const users = await adminServices.getUsers();
+  return res.status(200).json(users);
 };
 
-const getUser = async (req, res) => {
-  const user = await adminServices.postUser(req.body);
-  return res.status(200).json(user);
+const postUser = async (req, res) => {
+  const message = await adminServices.postUser(req.body);
+  return res.status(201).json(message);
 };
 
 const deleteUser = async (req, res) => {
@@ -17,6 +17,6 @@ const deleteUser = async (req, res) => {
 
 module.exports = {
   postUser,
-  getUser,
+  getUsers,
   deleteUser,
 };

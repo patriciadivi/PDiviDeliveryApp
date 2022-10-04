@@ -13,12 +13,4 @@ const makeRequest = async (url, method, data = null, token = null) => {
   return resultAxios.data;
 };
 
-// makeRequest(
-//   'login',
-//   'post',
-//   {
-//     email: 'adm@deliveryapp.com',
-//     password: '--adm2@21!!--' },
-// ).then((res) => console.log(res.data));
-
 module.exports = makeRequest;

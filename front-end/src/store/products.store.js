@@ -32,44 +32,11 @@ const productsStore = create(devtools(
       state.cart.push(item);
     }), false, 'insert'),
 
+    emptyCart: () => {
+      set({ cart: [] }, false, 'emptyCart');
+    },
+
   }),
 ));
 
 export default productsStore;
-
-// addToCart: (id) => {
-//   const cartItemIndex = get().cart.findIndex((item) => item.id === id);
-//   const product = get().products.find((item) => item.id === id);
-//   if (cartItemIndex < 0) {
-//     return set(produce((draft) => {
-//       draft.cart.push({ ...product, quantity: 1 });
-//     }), false, 'addToCart');
-//   }
-//   return set(produce((draft) => {
-//     draft.cart[cartItemIndex].quantity += 1;
-//   }), false, 'addTocart');
-// },
-// subFromCart: (id) => {
-//   const cartItemIndex = get().cart.findIndex((item) => item.id === id);
-//   const cartItem = get().cart.find((item) => item.id === id);
-//   if (cartItemIndex > menosUm && cartItem.quantity > 1) {
-//     return set(produce((draft) => {
-//       draft.cart[cartItemIndex].quantity -= 1;
-//     }), false, 'subFromCart');
-//   }
-//   if (cartItemIndex > menosUm) {
-//     return get().removeFromCart(id);
-//   }
-// },
-// editQuantity: (id, value) => {
-//   const cartItemIndex = get().cart.findIndex((item) => item.id === id);
-//   const product = get().products.find((item) => item.id === id);
-//   if (cartItemIndex < 0) {
-//     return set(produce((state) => {
-//       state.cart.push({ ...product, quantity: value });
-//     }), false, 'editQuantity');
-//   }
-//   return set(produce((state) => {
-//     state.cart[cartItemIndex].quantity = value;
-//   }), false, 'editQuantity');
-// },
