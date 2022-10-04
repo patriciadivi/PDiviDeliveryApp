@@ -21,20 +21,21 @@ function NavBar({ page }) {
             data-testid="customer_products__element-navbar-link-products"
             to="/customer/products"
           >
-            Produtos
+            PRODUTOS
           </Link>
         )}
         <Link
           data-testid="customer_products__element-navbar-link-orders"
-          to={ `/${page}/orders` }
+          to={ page !== 'admin' ? `/${page}/orders` : '/admin/manage' }
         >
-          {page === 'customer' && 'Meus Pedidos'}
-          {page === 'seller' && 'Pedidos'}
+          {page === 'customer' && 'MEUS PEDIDOS'}
+          {page === 'seller' && 'PEDIDOS'}
+          {page === 'admin' && 'GERENCIAR USUÁRIOS'}
         </Link>
         <span
           data-testid="customer_products__element-navbar-user-full-name"
         >
-          {`Olá, ${name}`}
+          {`${name.toUpperCase()}`}
         </span>
         <Link
           to="/"

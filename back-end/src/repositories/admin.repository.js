@@ -1,14 +1,14 @@
 const { Op } = require('sequelize');
 const { Users } = require('../database/models');
 
-const getUser = async ({ name, email, role }) => {
-  if (!role) {
-    const userObj = await Users.findOne({ where: { [Op.or]: [{ name }, { email }] } });
-    return userObj;
-  }
+const getUser = async ({ name, email }) => {
+  const user = await Users.findOne({ where: { [Op.or]: [{ name }, { email }] } });
+  return user;
+};
 
-  const usersArray = await Users.findAll({ where: { [Op.not]: [role === 'administrator'] } });
-  return usersArray;
+const getUsers = async () => {
+  const users = await Users.findAll();
+  return users;
 };
 
 const postUser = async ({ name, email, password, role }) => {
@@ -23,6 +23,7 @@ const deleteUser = async ({ name, email }) => {
 
 module.exports = {
   getUser,
+  getUsers,
   postUser,
   deleteUser,
 };

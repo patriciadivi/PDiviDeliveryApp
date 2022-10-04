@@ -24,7 +24,7 @@ function UserForm({ page }) {
   const handleRoute = (role) => {
     switch (role) {
     case 'administrator':
-      navigate('/admin');
+      navigate('/admin/manage');
       break;
     case 'seller':
       navigate('/seller/orders');
