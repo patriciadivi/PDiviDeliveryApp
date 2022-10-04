@@ -17,6 +17,11 @@ const ordersStore = create(devtools(
       set({ orders: response }, false, 'fetchUserOrders');
     },
 
+    fetchSellerOrders: async (sellerId, token) => {
+      const response = await makeRequest('sales/seller', 'post', { sellerId }, token);
+      set({ orders: response }, false, 'fetchSellerOrders');
+    },
+
   }),
 ));
 
