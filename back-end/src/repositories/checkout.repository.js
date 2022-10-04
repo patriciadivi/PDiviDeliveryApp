@@ -38,16 +38,7 @@ const createOrder = async (sale) => {
   return resultCreateSale;
 };
 
-const findOne = async ({ id }) => {
-  const userObj = await Sales.findOne({ where: { id } });
-  return userObj;
-};
-
-const update = async (id, userRole) => Sales.findOne(id, userRole);
-
 module.exports = {
   findAll,
   createOrder,
-  findOne,
-  update,
 };
