@@ -1,7 +1,7 @@
 const checkoutRepository = require('../repositories/checkout.repository');
 
 const findAll = async (role) => {
-  const usersObj = await checkoutRepository.findAll({ where: { role } });
+  const usersObj = await checkoutRepository.findAll(role);
   return usersObj;
 };
 
