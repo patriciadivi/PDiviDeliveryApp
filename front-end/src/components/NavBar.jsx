@@ -2,6 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import PropType from 'prop-types';
 import { getUserLocalStorage, removeUserLocalStorage } from '../helpers/localStorage';
+import NavBarSComponent from '../styles/components/NavBar.style';
 import userStore from '../store/user.store';
 
 function NavBar({ page }) {
@@ -14,7 +15,7 @@ function NavBar({ page }) {
   };
 
   return (
-    <div>
+    <NavBarSComponent>
       <nav>
         { page === 'customer' && (
           <Link
@@ -45,7 +46,7 @@ function NavBar({ page }) {
           Sair
         </Link>
       </nav>
-    </div>
+    </NavBarSComponent>
   );
 }
 
