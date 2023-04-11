@@ -2,9 +2,10 @@ body {
   margin: 0;
   box-sizing: border-box;
   font-family: 'Roboto', 'Ubuntu', sans-serif;
+  background-color: #350B4B;
 }
 
-/* code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
-} */
+:root {
+  font-size: 62.5%
+}
+
