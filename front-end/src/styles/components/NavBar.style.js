@@ -15,24 +15,24 @@ const NavBarSComponent = styled.section`
     justify-content: space-around;
     outline: none;
     width: 100%;
-    height: 70px;
+    height: 5rem;
     background-color: #F89E2C;
 
     div {
         a {
         color: white;
         text-decoration: none;
-        margin: 0px, 5px;
+        margin: 0rem, 0.5rem;
         background-color: #F89E2C;
         padding: 1.2rem;
-        border-radius: 0.2rem;
+        border-radius: 0.4rem;
       }
 
     }
     
     span {
       color: white;
-      font-size: 1.2rem;
+      font-size: 2rem;
       padding: 1.7rem;
       background-color: #350B4B;
     }
@@ -40,13 +40,15 @@ const NavBarSComponent = styled.section`
     a {
       border: none;
       color: white;
+      font-size: 1.6rem;
       text-decoration: none;
       padding: 1.2rem 2.2rem;
-      border-radius: 0.1rem;
+      border-radius: 0.4rem;
 
       :hover {
         border-radius: 0.2rem;
         background-color: #350B4B;
+        padding: 1.7rem 2.2rem;
 
       }
     }
