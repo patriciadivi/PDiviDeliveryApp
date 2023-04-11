@@ -5,6 +5,7 @@ import NavBar from '../components/NavBar';
 import { getUserLocalStorage } from '../helpers/localStorage';
 import ProductCard from '../components/ProductCard';
 import productsStore from '../store/products.store';
+import SCustomerProducts from "../styles/pages/S.CustomerProducts";
 
 function CustomerProducts() {
   const navigate = useNavigate();
@@ -24,27 +25,42 @@ function CustomerProducts() {
     .toFixed(2).replace(/\./g, ',');
 
   return (
-    <div>
+    <SCustomerProducts>
+
       <NavBar page="customer" />
-      { products.length > 0
-          && products.map((product) => (
-            <div key={ product.id }>
-              <ProductCard product={ product } />
-            </div>
-          ))}
-      <button
-        data-testid="customer_products__button-cart"
-        type="button"
-        onClick={ () => navigate('/customer/checkout') }
-        disabled={ totalPrice === '0,00' }
-      >
-        <p
-          data-testid="customer_products__checkout-bottom-value"
-        >
-          {`${totalPrice}`}
-        </p>
-      </button>
-    </div>
+
+      <main>
+        <div>
+
+          { products.length > 0
+                && products.map((product) => (
+                  <div key={ product.id }>
+                    <ProductCard product={ product } />
+                  </div>
+                ))
+            }
+
+        </div> 
+        <div className="totalPriceButton">
+              <button
+                data-testid="customer_products__button-cart"
+                type="button"
+                onClick={ () => navigate('/customer/checkout') }
+                disabled={ totalPrice === '0,00' }
+              >
+                <p
+                  data-testid="customer_products__checkout-bottom-value"
+                >
+                  Total: R$ 
+                  
+                  {` ${totalPrice} `}
+                  
+                </p>
+              </button>
+            </div> 
+      </main>
+
+    </SCustomerProducts>
   );
 }
 
