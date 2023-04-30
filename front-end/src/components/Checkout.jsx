@@ -1,4 +1,3 @@
-/* eslint-disable react-hooks/exhaustive-deps */
 import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import productsStore from '../store/products.store';
@@ -6,6 +5,7 @@ import checkoutStore from '../store/checkout.store';
 import { getUserLocalStorage } from '../helpers/localStorage';
 import makeRequest from '../helpers/axios.integration';
 import Table from './Table';
+import SCheckout from '../styles/components/SCheckout';
 
 function Checkout() {
   const { id, token } = getUserLocalStorage();
@@ -19,17 +19,23 @@ function Checkout() {
   const tresMil = 3000;
 
   const totalPrice = cart
-    .reduce((prev, curr) => prev + (parseFloat(curr.price) * curr.quantity), 0)
+    .reduce((prev, curr) => prev + parseFloat(curr.price) * curr.quantity, 0)
     .toFixed(2);
 
   const handleCheckout = async () => {
-    const order = await makeRequest('checkout/order', 'post', {
-      userId: id,
-      sellerId,
-      totalPrice,
-      deliveryAddress,
-      deliveryNumber,
-      cart }, token);
+    const order = await makeRequest(
+      'checkout/order',
+      'post',
+      {
+        userId: id,
+        sellerId,
+        totalPrice,
+        deliveryAddress,
+        deliveryNumber,
+        cart,
+      },
+      token,
+    );
     setDisplay(true);
     setTimeout(() => {
       navigate(`/customer/orders/${order.id}`);
@@ -41,24 +47,20 @@ function Checkout() {
   }, []);
 
   return (
-    <div>
-      {
-        display && (
-          <div>
-            <h1>Compra realizada com sucesso!</h1>
-          </div>
-        )
-      }
+    <SCheckout>
+      {display && (
+        <div>
+          <h1>Compra realizada com sucesso!</h1>
+        </div>
+      )}
       <Table page="checkout" />
-      <h2
-        data-testid="customer_checkout__element-order-total-price"
-      >
-        {`Total: ${totalPrice.replace(/\./g, ',')}`}
+      <h2 data-testid="customer_checkout__element-order-total-price">
+        {`Total: R$ ${totalPrice.replace(/\./g, ',')}`}
       </h2>
       <div>
-        <h3>Detalhes e Endereço para Entrega</h3>
+        <h3>Detalhes e endereço de entrega</h3>
         <label htmlFor="seller">
-          P. Vendedora Responsável
+          P. Vendedora Responsável:
           <select
             data-testid="customer_checkout__select-seller"
             name="seller"
@@ -66,15 +68,15 @@ function Checkout() {
             onChange={ ({ target: { value } }) => setSellerId(Number(value)) }
           >
             <option value="seller">Escolha seu vendedor</option>
-            {
-              sellers.map((seller) => (
-                <option key={ seller.id } value={ seller.id }>{seller.name}</option>
-              ))
-            }
+            {sellers.map((seller) => (
+              <option key={ seller.id } value={ seller.id }>
+                { seller.name }
+              </option>
+            ))}
           </select>
         </label>
         <label htmlFor="address">
-          Endereço
+          Endereço:
           <input
             type="text"
             data-testid="customer_checkout__input-address"
@@ -83,10 +85,11 @@ function Checkout() {
           />
         </label>
         <label htmlFor="number">
-          Número
+          Número:
           <input
             type="text"
             data-testid="customer_checkout__input-address-number"
+            className="inputValue"
             placeholder="Digite seu número"
             onChange={ ({ target: { value } }) => setDeliveryNumber(value) }
           />
@@ -99,7 +102,7 @@ function Checkout() {
           Finalizar pedido
         </button>
       </div>
-    </div>
+    </SCheckout>
   );
 }
 
