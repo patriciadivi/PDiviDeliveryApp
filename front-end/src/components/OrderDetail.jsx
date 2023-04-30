@@ -1,10 +1,17 @@
+/* eslint-disable max-len */
 import React from 'react';
 import moment from 'moment';
 import PropType from 'prop-types';
 // import { useNavigate } from 'react-router-dom';
+import {
+  Confetti, Calendar, UserSwitch, HourglassSimpleHigh,
+} from '@phosphor-icons/react';
+
 import ordersStore from '../store/orders.store';
 import makeRequest from '../helpers/axios.integration';
 import { getUserLocalStorage } from '../helpers/localStorage';
+import SOrderDetail from '../styles/components/SOrderDetail';
+import CheckAnimation from './lottieComponents/CheckDelivery';
 
 function OrderDetail({ page }) {
   const { orderDetail } = ordersStore((state) => state);
@@ -18,62 +25,90 @@ function OrderDetail({ page }) {
 
   const testId = `${page}_order_details__element-order-details-label-delivery-status`;
   return (
-    <div>
-      <p
-        data-testid={ `${page}_order_details__element-order-details-label-order-id` }
-      >
-        {`PEDIDO: ${orderDetail.id};`}
+    <SOrderDetail>
+      <div className={ `${page}OrderDetail` }>
+        <CheckAnimation page={ page } />
 
-      </p>
-      { page === 'customer' && (
-        <p
-          data-testid="customer_order_details__element-order-details-label-seller-name"
-        >
-          {`P. Vend: ${orderDetail.seller?.name}`}
+        <div className="OrderDetailSpan">
+          <span>
+            <Confetti
+              className="OrderDetailSpan"
+              color="#350b4b"
+              size={ 32 }
+              weight="duotone"
+            />
+            <p
+              data-testid={ `${page}_order_details__element-order-details-label-order-id` }
+            >
+              {`PEDIDO CONCLUÍDO: 00${orderDetail.id}`}
+            </p>
+          </span>
 
-        </p>
-      )}
-      <p
-        data-testid={ `${page}_order_details__element-order-details-label-order-date` }
-      >
-        {`${moment(orderDetail.saleDate).format('DD/MM/YYYY')}`}
-      </p>
-      <p
-        data-testid={ testId }
-      >
-        {`${orderDetail.status}`}
-      </p>
-      { page === 'seller' && (
-        <div>
-          <button
-            type="button"
-            data-testid="seller_order_details__button-preparing-check"
-            disabled={ orderDetail.status !== 'Pendente' }
-            onClick={ () => handleClick('Preparando') }
-          >
-            PREPARAR PEDIDO
-          </button>
-          <button
-            type="button"
-            data-testid="seller_order_details__button-dispatch-check"
-            disabled={ orderDetail.status !== 'Preparando' }
-            onClick={ () => handleClick('Em Trânsito') }
-          >
-            SAIU PARA ENTREGA
-          </button>
+          {page === 'customer' && (
+            <span>
+              <UserSwitch size={ 32 } color="#350b4b" weight="duotone" />
+              <p
+                data-testid={ `${page}_order_details__element-order-details-label-seller-name` }
+              >
+                {`P. Vend: ${orderDetail.seller?.name}`}
+              </p>
+            </span>
+          )}
+
+          <span>
+            <Calendar size={ 32 } color="#350b4b" weight="duotone" />
+            <p
+              data-testid={
+                `${page}_order_details__element-order-details-label-order-date`
+              }
+            >
+              {`${moment(orderDetail.saleDate).format('DD/MM/YYYY')}`}
+            </p>
+          </span>
+
+          <span>
+            <HourglassSimpleHigh color="#350b4b" size={ 32 } weight="duotone" />
+            <p
+              data-testid={ testId }
+            >
+              {`${orderDetail.status}`}
+            </p>
+          </span>
+
+          {page === 'seller' && (
+            <div className="seller">
+              <button
+                type="button"
+                data-testid="seller_order_details__button-preparing-check"
+                disabled={ orderDetail.status !== 'Pendente' }
+                onClick={ () => handleClick('Preparando') }
+              >
+                PREPARAR PEDIDO
+              </button>
+              <button
+                type="button"
+                data-testid="seller_order_details__button-dispatch-check"
+                disabled={ orderDetail.status !== 'Preparando' }
+                onClick={ () => handleClick('Em Trânsito') }
+              >
+                SAIU PARA ENTREGA
+              </button>
+            </div>
+          )}
         </div>
-      )}
-      { page === 'customer' && (
-        <button
-          type="button"
-          data-testid="customer_order_details__button-delivery-check"
-          disabled={ orderDetail.status !== 'Em Trânsito' }
-          onClick={ () => handleClick('Entregue') }
-        >
-          Marcar como entregue
-        </button>
-      )}
-    </div>
+        {page === 'customer' && (
+
+          <button
+            type="button"
+            data-testid="customer_order_details__button-delivery-check"
+            disabled={ orderDetail.status !== 'Em Trânsito' }
+            onClick={ () => handleClick('Entregue') }
+          >
+            Marcar como entregue
+          </button>
+        )}
+      </div>
+    </SOrderDetail>
   );
 }
 
