@@ -1,11 +1,13 @@
-import React from 'react';
+/* eslint-disable react/jsx-curly-spacing */
 import PropType from 'prop-types';
 import productsStore from '../store/products.store';
+import STable from '../styles/components/STable';
 
 function Table({ page }) {
   const { cart, removeFromCart } = productsStore((state) => state);
+
   return (
-    <table>
+    <STable>
       <thead>
         <tr>
           <th>Item</th>
@@ -13,12 +15,13 @@ function Table({ page }) {
           <th>Quantidade</th>
           <th>Valor Unitário</th>
           <th>Sub-total</th>
+          <th>Item Imagem</th>
           {page === 'checkout' && <th>Remover Item</th>}
         </tr>
       </thead>
       <tbody>
         {cart?.map((c, index) => (
-          <tr key={ c.name }>
+          <tr key={c.name}>
             <td
               data-testid={
                 page === 'checkout'
@@ -26,7 +29,7 @@ function Table({ page }) {
                   : `customer_order_details__element-order-table-item-number-${index}`
               }
             >
-              { index + 1 }
+              {index + 1}
             </td>
             <td
               data-testid={
@@ -34,8 +37,9 @@ function Table({ page }) {
                   ? `customer_checkout__element-order-table-name-${index}`
                   : `customer_order_details__element-order-table-name-${index}`
               }
+              className="tdNome"
             >
-              { c.name }
+              {c.name}
             </td>
             <td
               data-testid={
@@ -44,7 +48,7 @@ function Table({ page }) {
                   : `customer_order_details__element-order-table-quantity-${index}`
               }
             >
-              { page === 'checkout' ? c.quantity : c.SalesProducts.quantity }
+              {page === 'checkout' ? c.quantity : c.SalesProducts.quantity}
             </td>
             <td
               data-testid={
@@ -53,7 +57,9 @@ function Table({ page }) {
                   : `customer_order_details__element-order-table-unit-price-${index}`
               }
             >
-              { c.price.replace(/\./g, ',') }
+
+              {/* <span>R$ </span> */}
+              {c.price.replace(/\./g, ',')}
             </td>
             <td
               data-testid={
@@ -62,32 +68,44 @@ function Table({ page }) {
                   : `customer_order_details__element-order-table-sub-total-${index}`
               }
             >
-              { page === 'checkout'
-                ? Number(c.price * c.quantity).toFixed(2)
+              {/* <span>R$ </span> */}
+              {page === 'checkout'
+                ? Number(c.price * c.quantity)
+                  .toFixed(2)
                   .replace(/\./g, ',')
-                : Number(c.price * c.SalesProducts.quantity).toFixed(2)
+                : Number(c.price * c.SalesProducts.quantity)
+                  .toFixed(2)
                   .replace(/\./g, ',')}
             </td>
-            {
-              page === 'checkout' && (
-                <td>
-                  <button
-                    type="button"
-                    value={ c.name }
-                    data-testid={
-                      `customer_checkout__element-order-table-remove-${index}`
-                    }
-                    onClick={ () => removeFromCart(c.id) }
-                  >
-                    Remover
-                  </button>
-                </td>
-              )
-            }
+
+            <td>
+              {
+                page === 'checkout' ? <img
+                  src={c.urlImage}
+                  alt={c.name}
+                /> : <img
+                  src={c.SalesProducts.urlImage}
+                  alt={c.SalesProducts.name}
+                />
+              }
+            </td>
+
+            {page === 'checkout' && (
+              <td>
+                <button
+                  type="button"
+                  value={c.name}
+                  data-testid={`customer_checkout__element-order-table-remove-${index}`}
+                  onClick={() => removeFromCart(c.id)}
+                >
+                  Remover
+                </button>
+              </td>
+            )}
           </tr>
         ))}
       </tbody>
-    </table>
+    </STable>
   );
 }
 
