@@ -1,11 +1,15 @@
 body {
   margin: 0;
   box-sizing: border-box;
-  font-family: 'Roboto', 'Ubuntu', sans-serif;
-  background-color: #350B4B;
+  font-family: "Roboto", "Ubuntu", sans-serif;
+  background-color: var(--primaryDIVI);
 }
 
 :root {
-  font-size: 62.5%
-}
+  font-size: 62.5%;
 
+  --primaryDIVI: #350b4b;
+  --secundaryDIVI: #f89e2c;
+  --textPrimaryDIVI: #ffff;
+  --textPlaceholder: #c1c9c8;
+}
