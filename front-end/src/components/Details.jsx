@@ -1,6 +1,7 @@
-/* eslint-disable react-hooks/exhaustive-deps */
 import React from 'react';
+
 import PropType from 'prop-types';
+import { Coins } from '@phosphor-icons/react';
 import ordersStore from '../store/orders.store';
 
 function Details({ page }) {
@@ -8,7 +9,7 @@ function Details({ page }) {
   const { totalPrice, products } = orderDetail;
 
   return (
-    <div>
+    <section className={ `${page}Details` }>
       <table>
         <thead>
           <tr>
@@ -27,13 +28,15 @@ function Details({ page }) {
                   `${page}_order_details__element-order-table-item-number-${index}`
                 }
               >
-                { index + 1 }
+                { page }
+                {index + 1}
               </td>
               <td
                 data-testid={
                   `${page}_order_details__element-order-table-name-${index}`
                 }
               >
+
                 { p.name }
               </td>
               <td
@@ -41,33 +44,43 @@ function Details({ page }) {
                   `${page}_order_details__element-order-table-quantity-${index}`
                 }
               >
-                { p.SalesProducts.quantity }
+                {p.SalesProducts.quantity}
               </td>
               <td
                 data-testid={
                   `${page}_order_details__element-order-table-unit-price-${index}`
                 }
               >
-                { p.price.replace(/\./g, ',') }
+                {p.price.replace(/\./g, ',')}
               </td>
               <td
                 data-testid={
                   `${page}_order_details__element-order-table-sub-total-${index}`
                 }
               >
-                { Number(p.price * p.SalesProducts.quantity).toFixed(2)
+                {Number(p.price * p.SalesProducts.quantity).toFixed(2)
                   .replace(/\./g, ',')}
               </td>
             </tr>
           ))}
         </tbody>
       </table>
-      <h2
-        data-testid={ `${page}_order_details__element-order-total-price` }
-      >
-        {`Total: ${totalPrice?.replace(/\./g, ',')}`}
-      </h2>
-    </div>
+      <span>
+        <Coins
+          color="#350b4b"
+          size={ 32 }
+          weight="duotone"
+        />
+        <h2
+          data-testid={ `${page}_order_details__element-order-total-price` }
+        >
+          <strong>
+            R$
+          </strong>
+          {`${totalPrice?.replace(/\./g, ',')}`}
+        </h2>
+      </span>
+    </section>
   );
 }
 
