@@ -191,7 +191,56 @@
   # O servidor web inciará na porta:3000 - acesse http://localhost:3000/
 
  ``` 
-	
+  <br />
  </details>
+ <br />
+ 
+ ## 🛠 Tecnologias
+	
+  <p>As seguintes ferramentas foram usadas na construção do projeto:</p>
+	
+ <details>
+   <summary>
+		 <strong>🎲 Backend </strong>
+		 (<a href="https://reactjs.org/docs/getting-started.html">React</a> +
+		 <a href="https://developer.mozilla.org/pt-BR/docs/Web/JavaScript">JavaScript</a>)
+	</summary>
+	</br>
+		<ul>
+		<li><a href="https://expressjs.com/pt-br/guide/routing.html">Express</a></li>
+		<li><a href="https://www.npmjs.com/package/cors">Cors</a></li>
+		<li><a href="https://www.npmjs.com/package/email-validator">Email Validator</a></li>
+		<li><a href="https://www.npmjs.com/package/express-async-errors">Express Async Errors</a></li>
+		<li><a href="https://jwt.io/">JSON Web Tokens(J.W.T)</a></li>
+		<li><a href="https://www.md5hashgenerator.com/">MD5 Hash Generator</a></li>
+		<li><a href="https://www.npmjs.com/package/mysql2#installation">MySQL</a></li>
+		<li><a href="https://sequelize.org/docs/v6/getting-started/">Sequelize ORM</a></li>
+		<li><a href="https://mochajs.org/#installation">Mocha</a></li>
+		<li><a href="https://www.npmjs.com/package/nodemon">Nodemon</a></li>
+		<li><a href="https://www.chaijs.com/guide/">Chai</a></li>
+		<li><a href="https://sinonjs.org/releases/v15/">Sinon JS</a></li>
+		</ul>
+  </details>
+	
+<details align="left">
+    <summary><strong>👩🏻‍💻 <strong>Frontend</strong>
+			(<a href="https://reactjs.org/docs/getting-started.html">React</a> +
+		 	<a href="https://www.typescriptlang.org/docs/">TypeScript</a>)
+		</summary>
+		</br>
+		<ul>
+      <li><a href="https://axios-http.com/docs/intro">Axios</a></li>
+      <li><a href="https://www.npmjs.com/package/email-validator">Email Validator</a></li>
+			<li><a href="https://pt-br.legacy.reactjs.org/docs/getting-started.html">React</a></li>
+			<li><a href="https://www.npmjs.com/package/react-lottie">React Lottie</a></li>
+			<li><a href="https://reactrouter.com/en/main">React Router Dom</a></li>
+			<li><a href="https://styled-components.com/docs/basics#installation">Styled Components</a></li>
+			<li><a href="https://phosphoricons.com/">Phosphor Icons</a></li>
+			<li><a href="https://github.com/uuidjs/uuid">Uuid</a></li>
+			<li><a href="https://zustand-demo.pmnd.rs/">Zustand</a></li>
+		</ul>
+	</details>
+ 
+ 
   <div>
 </div>
