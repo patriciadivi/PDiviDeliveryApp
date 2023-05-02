@@ -6,7 +6,7 @@ const SCustomerProducts = styled.section`
     display: flex;
     flex-direction: column;
 
-    background-color: #350b4b;
+    background-color: var(--primaryDIVI);
 
     position: absolute;
 
@@ -28,6 +28,9 @@ const SCustomerProducts = styled.section`
       bottom: 0;
 
       button {
+        display: flex;
+        align-items: center;
+
         background-color: var(--secundaryDIVI);
         border: 0;
         border-radius: 0.4rem;
@@ -38,8 +41,14 @@ const SCustomerProducts = styled.section`
         margin: 0.8rem 0 1.2rem 0;
         transition: 0.2s;
         &:hover {
-          background-color: #e8a726;
-          color: #d9e1df;
+          background-color: var(--hoverSecundaryDIVI);
+          border: 0.2rem solid var(--secundaryDIVI);
+          color: var(--primaryDIVI);
+        }
+
+        strong {
+          font-size: 1.2rem;
+          margin: 0 0.8rem 0 0;
         }
       }
     }
