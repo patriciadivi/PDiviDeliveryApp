@@ -5,6 +5,7 @@ const SCustomerProducts = styled.section`
   main {
     display: flex;
     flex-direction: column;
+    align-items: center;
 
     background-color: var(--primaryDIVI);
 
@@ -12,17 +13,17 @@ const SCustomerProducts = styled.section`
 
     div {
       display: flex;
-      justify-content: center;
+      justify-content: space-between;
       align-items: center;
       flex-wrap: wrap;
-      max-width: 90%;
-      margin: 0 auto;
+      max-width: 75%;
+      /* margin: 0 auto; */
     }
 
     .totalPriceButton {
       display: flex;
       justify-content: end;
-      margin-right: 1.2rem;
+      margin-right: 1.6rem;
       position: fixed;
       right: 0;
       bottom: 0;
