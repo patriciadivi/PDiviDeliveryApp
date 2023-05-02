@@ -141,12 +141,12 @@
   
   
   <details align="left">
-    <summary><h2>🎲</h2> <strong>Rodando o Backend (servidor)</strong></summary>
+    <summary><h2>🎲</h2> <strong>Rodando o Backend (pasta back-end)</strong></summary>
 
   ```bash
 
   > 1 - Na raiz do projeto execute os comandos abaixo: 
-   # Vá para a pasta server
+   # Vá para a pasta back-end
     $ cd back-end/
 
   > 2 - Instale as dependências
@@ -172,5 +172,26 @@
   ```
   
   </details>
+  
+  <details align="left">
+    <summary><h2>👩🏻‍💻</h2> <strong>Frontend (pasta front-end)</strong></summary>
+
+ ```bash
+
+  > 1 - Na raiz do projeto execute os comandos abaixo: 
+   # Vá para a pasta front-end
+    $ cd front-end/
+
+  > 2 - Instale as dependências
+    $ npm install
+
+  > 3 - Execute a aplicação em modo de desenvolvimento
+    $ npm start
+
+  # O servidor web inciará na porta:3000 - acesse http://localhost:3000/
+
+ ``` 
+	
+ </details>
   <div>
 </div>
