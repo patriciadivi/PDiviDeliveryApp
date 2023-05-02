@@ -241,6 +241,22 @@
 		</ul>
 	</details>
  
+ </br>
  
-  <div>
+<details align="left">
+  <summary><strong>🏗️ <strong>Utilitários</strong></summary>
+<ul>
+<li>Commit: <a href="https://marketplace.visualstudio.com/items?itemName=vivaxy.vscode-conventional-commits">Conventional Commits</a></li>
+<li>Editor: <a href="https://code.visualstudio.com/">Visual Studio Code</a></li>
+<li>Fontes: <a href="https://fonts.google.com/specimen/Roboto?query=RO">Roboto</a> e <a href="https://fonts.google.com/specimen/Ubuntu?query=Ubu">Ubuntu</a></li>
+<li>Teste de API: <a href="https://insomnia.rest/">Insomnia</a></li>
+</ul>
+
+</details>
+	
+ 
+ </div>
+
+   ---
+  ⌨️ com ❤️ por [Patricia Dias Viana](https://github.com/patriciadivi) 😊
 </div>
