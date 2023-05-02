@@ -14,3 +14,13 @@ body {
   --textPrimaryDIVI: #ffff;
   --textPlaceholder: #c1c9c8;
 }
+
+/* Scroll da página */
+::-webkit-scrollbar {
+  width: 1rem;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #f89e2c;
+  border-radius: 0.8rem;
+}
