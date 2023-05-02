@@ -33,10 +33,10 @@
   > 1 - Clone este repositório
     
   # Abra o seu TERMINAL e digite o comando abaixo.
-  $ git clone git@github.com:patriciadivi/habits.git
+  $ git clone git@github.com:patriciadivi/PDiviDeliveryApp.git
 
   # Acesse a pasta do projeto no terminal/cmd
-  $ cd habits
+  $ cd PDiviDeliveryApp/
 
   # Caso tenha o editor de codigo(VSCode) digite o comando abaixo.
   $ code .
@@ -128,8 +128,8 @@
 ## 🚀 Como executar o projeto
 
   Este projeto é divido em duas partes:
-  1. Backend (pasta server) 
-  2. Frontend (pasta web)
+  1. Backend (pasta back-end) 
+  2. Frontend (pasta front-end)
 
   💡O Frontend precisam que o Backend esteja sendo executado para funcionar.
 
