@@ -139,5 +139,38 @@
   [Git](https://git-scm.com) (terminal), [Node.js](https://nodejs.org/en/) (motor da aplicação) e [Docker](https://docs.docker.com/get-docker/) (ambiente controlado).<br />
   Além disto é bom ter um editor para trabalhar com o código como [VSCode](https://code.visualstudio.com/)
   
+  
+  <details align="left">
+    <summary><h2>🎲</h2> <strong>Rodando o Backend (servidor)</strong></summary>
+
+  ```bash
+
+  > 1 - Na raiz do projeto execute os comandos abaixo: 
+   # Vá para a pasta server
+    $ cd back-end/
+
+  > 2 - Instale as dependências
+    $ npm install
+  
+  > 3 - Iniciando o docker
+   💡Caso esteja no (windows)
+    3.1 - Abra a ferramenta docker desktop
+    3.2 - Volte ao terminar da aplicação(back-end) e execute:
+    $ docker-compose up --build -d
+  
+   💡Caso esteja no (Linux ou Mac)
+    $ docker-compose up --build -d
+
+  > 4 - Abra o terminal docker executando esse comando:
+    $ docker exec -it delivery_api bash
+  
+  > 5 - Execute a aplicação em modo de desenvolvimento
+    $ npm run dev
+
+  # O servidor inciará na porta:3001 - acesse http://localhost:3001 
+
+  ```
+  
+  </details>
   <div>
 </div>
