@@ -148,7 +148,14 @@ function UserForm({ page }) {
             >
               Ainda não tenho conta
             </button>
-          ) : null}
+          ) : (
+            <button
+              type="button"
+              onClick={ () => navigate('/login') }
+            >
+              Fazer login
+            </button>
+          )}
         </div>
       </form>
     </section>
