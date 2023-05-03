@@ -43,21 +43,21 @@ const RegisterSComponent = styled.section`
     }
 
     input {
-      border: 0.05rem solid gray;
+      border: 0.05rem solid var(--secundaryDIVI);
       /* border-color: gray; */
-      /* color grey; */
-      /* background-color: black; */
+      color: var(--secundaryDIVI);
+      background-color: var(--primaryDIVI);
       height: 1.4375em;
       min-width: 0;
       width: 20rem;
-      font-size: 1rem;
+      font-size: 1.6rem;
       font-weight: 500;
       outline: none;
       padding: 0.8rem;
       border-radius: 0.2rem;
       /* color: #350B4B; */
 
-      :hover {
+      &:hover {
         /* outline: solid red; */
         border: 0.05rem inset var(--primaryDIVI);
         animation-duration: 10ms;
@@ -65,7 +65,8 @@ const RegisterSComponent = styled.section`
         box-shadow: 0px 3px 1px -2px var(--primaryDIVI);
       }
       :focus {
-        outline: 0;
+        /* outline: 0; */
+        border: 0.4rem inset var(--secundaryDIVI);
       }
     }
 
@@ -74,17 +75,18 @@ const RegisterSComponent = styled.section`
       flex-direction: column;
 
       button {
-        font-size: 1em;
+        font-size: 1.6rem;
         margin: 1em 0 5em 0;
-        padding: 0.55em 1em;
-        /* padding: 0.8rem; */
+        /* padding: 0.55em 1em; */
+        padding: 0.8rem 1.6rem;
         border: 2px solid var(--secundaryDIVI);
         border-radius: 3px;
         color: gray;
         width: 21.8rem;
         transition: 0.2s;
 
-        :hover {
+        &:hover {
+          border: 0.2rem solid var(--textPrimaryDIVI);
           background-color: var(--secundaryDIVI);
           color: white;
         }

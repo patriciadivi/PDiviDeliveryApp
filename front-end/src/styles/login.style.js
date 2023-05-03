@@ -31,7 +31,7 @@ const LoginSComponent = styled.section`
     }
 
     input {
-      border: 0.05rem solid gray;
+      border: 0.05rem solid var(--secundaryDIVI);
       background-color: var(--primaryDIVI);
       height: 1.4375em;
       min-width: 0;
@@ -44,13 +44,14 @@ const LoginSComponent = styled.section`
       color: var(--secundaryDIVI);
 
       :hover {
-        border: 0.05rem solid var(--secundaryDIVI);
+        /* border: 0.05rem solid var(--secundaryDIVI); */
+        border: 0.05rem inset var(--primaryDIVI);
         animation-duration: 10ms;
         box-shadow: 0px 3px 1px -2px var(--primaryDIVI);
       }
       :focus {
-        outline: 0;
-        border: 0.05rem solid var(--secundaryDIVI);
+        /* outline: 0; */
+        border: 0.4rem inset var(--secundaryDIVI);
       }
     }
 
