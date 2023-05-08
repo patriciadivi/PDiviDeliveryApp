@@ -4,18 +4,20 @@ import moment from 'moment';
 import PropType from 'prop-types';
 // import { useNavigate } from 'react-router-dom';
 import {
-  Confetti, Calendar, UserSwitch, HourglassSimpleHigh,
+  Confetti, Calendar, UserSwitch,
 } from '@phosphor-icons/react';
 
 import ordersStore from '../store/orders.store';
 import makeRequest from '../helpers/axios.integration';
 import { getUserLocalStorage } from '../helpers/localStorage';
 import SOrderDetail from '../styles/components/SOrderDetail';
-import CheckAnimation from './lottieComponents/CheckDelivery';
+// import CheckAnimation from './lottieComponents/CheckDelivery';
+import SwitchAnimation from './SwitchAnimation';
 
 function OrderDetail({ page }) {
   const { orderDetail } = ordersStore((state) => state);
   const { token } = getUserLocalStorage();
+  // const currentPathname = window.location.pathname;
   // const navigate = useNavigate();
 
   const handleClick = async (newStatus) => {
@@ -23,12 +25,11 @@ function OrderDetail({ page }) {
     // navigate(0);
   };
 
-  const testId = `${page}_order_details__element-order-details-label-delivery-status`;
+  // const testId = `${page}_order_details__element-order-details-label-delivery-status`;
   return (
     <SOrderDetail>
       <div className={ `${page}OrderDetail` }>
-        <CheckAnimation page={ page } />
-
+        <SwitchAnimation status={ orderDetail.status } component="OrderDetail" />
         <div className="OrderDetailSpan">
           <span>
             <Confetti
@@ -40,7 +41,7 @@ function OrderDetail({ page }) {
             <p
               data-testid={ `${page}_order_details__element-order-details-label-order-id` }
             >
-              {`PEDIDO CONCLUÍDO: 00${orderDetail.id}`}
+              {`PEDIDO N°: 00${orderDetail.id}`}
             </p>
           </span>
 
@@ -66,14 +67,23 @@ function OrderDetail({ page }) {
             </p>
           </span>
 
-          <span>
-            <HourglassSimpleHigh color="#350b4b" size={ 32 } weight="duotone" />
+          {/* exemplo */}
+          {/* <span>
+            {
+              orderDetail.status === 'Entregue' ? (
+                <>
+                  <HourglassSimpleHigh color="#350b4b" size={ 32 } weight="duotone" />
+                  <p>apareci</p>
+                </>
+              ) : (null)
+            }
+
             <p
               data-testid={ testId }
             >
               {`${orderDetail.status}`}
             </p>
-          </span>
+          </span> */}
 
           {page === 'seller' && (
             <div className="seller">
@@ -96,6 +106,7 @@ function OrderDetail({ page }) {
             </div>
           )}
         </div>
+
         {page === 'customer' && (
 
           <button

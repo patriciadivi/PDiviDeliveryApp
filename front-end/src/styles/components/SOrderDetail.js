@@ -18,11 +18,31 @@ const SOrderDetail = styled.section`
 
     margin-bottom: 0.8rem;
 
+    article {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      /* border: 0.2rem solid ghostwhite; */
+
+
+      svg {
+        /* border: 0.2rem solid black; */
+      }
+
+      > p {
+        margin: 0.8rem 0 2.4rem;
+        text-align: center;
+        font-size: 1.6rem;
+      }
+    }
+
     .OrderDetailSpan {
       /* border: 0.2rem solid greenyellow; */
       display: grid;
-      grid-template-rows: 1fr 1fr;
-      grid-gap: 0rem 1.6rem;
+      /* grid-template-rows: 1fr repeat(1fr); */
+      /* grid-gap: 0rem 1.6rem; */
+      grid-gap: 0rem 2.4rem;
       grid-auto-flow: column;
 
       span {
