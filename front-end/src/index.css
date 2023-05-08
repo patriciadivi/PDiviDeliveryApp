@@ -24,3 +24,10 @@ body {
   background-color: #f89e2c;
   border-radius: 0.8rem;
 }
+
+/* Retirada das setas de numeração do inprut */
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
