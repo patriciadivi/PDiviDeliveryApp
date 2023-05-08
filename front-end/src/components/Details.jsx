@@ -68,7 +68,7 @@ function Details({ page }) {
       <span>
         <Coins
           color="#350b4b"
-          size={ 32 }
+          size={ 40 }
           weight="duotone"
         />
         <h2

@@ -15,6 +15,7 @@ const SDetails = styled.section`
   table {
       background-color: var(--primaryDIVI);
       border-radius: 0.4rem;
+      padding: 0.8rem;
 
       th,
       td {
@@ -29,6 +30,7 @@ const SDetails = styled.section`
       flex-direction: column;
       justify-content: center;
       align-items: center;
+      margin-left: 0.8rem;
 
       h2 {
         display: flex;
@@ -36,14 +38,14 @@ const SDetails = styled.section`
         gap: 0.8rem;
         
 
-        color: var(--textPrimaryDIVI);
-        font-size: 2rem;
+        color: var(--primaryDIVI);
+        font-size: 3.2rem;
 
-        margin-bottom: 0;
+        margin: 0.8rem 0 0;
 
         strong {
           color: var(--primaryDIVI);
-          font-size: 1.2rem;
+          font-size: 1.6rem;
 
           margin: 0 0.4rem 0 0;
         }
