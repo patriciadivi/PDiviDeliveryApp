@@ -32,7 +32,7 @@ const ProductCardSComponent = styled.section`
     img {
       height: 12rem;
       width: 12rem;
-      color: red;
+      object-fit: contain;
     }
 
     section {

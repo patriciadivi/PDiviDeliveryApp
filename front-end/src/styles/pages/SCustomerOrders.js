@@ -14,7 +14,7 @@ const SCustomerOrders = styled.main`
 > section {
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-between;
+  justify-content: flex-start;
 
   /* border: 0.2rem solid brown; */
 

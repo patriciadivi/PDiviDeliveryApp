@@ -16,7 +16,8 @@ const SSellerOrderDetail = styled.section`
     padding: 0.8rem 1.6rem;
 
     > h2 {
-      color: var(--textPrimaryDIVI);
+      color: var(--primaryDIVI);
+      /* color: var(--textPrimaryDIVI); */
       font-size: 3.2rem;
       text-align: center;
 
