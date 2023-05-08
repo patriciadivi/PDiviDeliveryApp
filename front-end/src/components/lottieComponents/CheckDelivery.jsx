@@ -5,7 +5,7 @@ import Lottie from 'react-lottie';
 import PropType from 'prop-types';
 import CheckDelivery from '../../img/lottieFiles/checkDelivery.json';
 
-function CheckAnimation({ page }) {
+function CheckAnimation({ component }) {
   const defaultOptions = {
     loop: true,
     autoplay: true,
@@ -15,14 +15,14 @@ function CheckAnimation({ page }) {
   return (
     <Lottie
       options={defaultOptions}
-      width={(page === 'customer') ? '120px' : '150px'}
-      height={(page === 'customer') ? '100px' : '120px'}
+      width={ (component === 'OrderDetail') ? '180px' : '250px' }
+      height={ (component === 'OrderDetail') ? '160px' : '150px' }
     />
   );
 }
 
 CheckAnimation.propTypes = {
-  page: PropType.string.isRequired,
+  component: PropType.string.isRequired,
 };
 
 export default CheckAnimation;
