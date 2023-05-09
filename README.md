@@ -202,7 +202,7 @@
  <details>
    <summary>
 		 <strong>🎲 Backend </strong>
-		 (<a href="https://reactjs.org/docs/getting-started.html">React</a> +
+		 (<a href="https://nodejs.org/en/docs/guides">NodeJS</a> +
 		 <a href="https://developer.mozilla.org/pt-BR/docs/Web/JavaScript">JavaScript</a>)
 	</summary>
 	</br>
