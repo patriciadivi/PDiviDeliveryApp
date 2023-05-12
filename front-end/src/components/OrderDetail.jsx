@@ -57,7 +57,7 @@ function OrderDetail({ page }) {
           )}
 
           <span>
-            <Calendar size={ 32 } color="#350b4b" weight="duotone" />
+            <Calendar size={ 32 } color="#350b4b" margin="0.8rem 0" weight="duotone" />
             <p
               data-testid={
                 `${page}_order_details__element-order-details-label-order-date`
@@ -85,27 +85,27 @@ function OrderDetail({ page }) {
             </p>
           </span> */}
 
-          {page === 'seller' && (
-            <div className="seller">
-              <button
-                type="button"
-                data-testid="seller_order_details__button-preparing-check"
-                disabled={ orderDetail.status !== 'Pendente' }
-                onClick={ () => handleClick('Preparando') }
-              >
-                PREPARAR PEDIDO
-              </button>
-              <button
-                type="button"
-                data-testid="seller_order_details__button-dispatch-check"
-                disabled={ orderDetail.status !== 'Preparando' }
-                onClick={ () => handleClick('Em Trânsito') }
-              >
-                SAIU PARA ENTREGA
-              </button>
-            </div>
-          )}
         </div>
+        {page === 'seller' && (
+          <div className="seller">
+            <button
+              type="button"
+              data-testid="seller_order_details__button-preparing-check"
+              disabled={ orderDetail.status !== 'Pendente' }
+              onClick={ () => handleClick('Preparando') }
+            >
+              PREPARAR PEDIDO
+            </button>
+            <button
+              type="button"
+              data-testid="seller_order_details__button-dispatch-check"
+              disabled={ orderDetail.status !== 'Preparando' }
+              onClick={ () => handleClick('Em Trânsito') }
+            >
+              SAIU PARA ENTREGA
+            </button>
+          </div>
+        )}
 
         {page === 'customer' && (
 

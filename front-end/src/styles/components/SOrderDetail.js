@@ -31,7 +31,7 @@ const SOrderDetail = styled.section`
       }
 
       > p {
-        margin: 0.8rem 0 2.4rem;
+        margin: 0.8rem 0 1.6rem;
         text-align: center;
         font-size: 1.6rem;
       }
@@ -118,53 +118,84 @@ const SOrderDetail = styled.section`
     /* display: flex; */
     color: var(--primaryDIVI);
 
-    span {
+    article {
       display: flex;
       flex-direction: column;
       align-items: center;
       justify-content: center;
-      margin-top: 0.8rem;
+      /* border: 0.2rem solid ghostwhite; */
 
-      p {
-        color: var(--primaryDIVI);
+
+      svg {
+        /* border: 0.2rem solid black; */
+      }
+
+      > p {
+        margin: 0.8rem 0 1.6rem;
+        text-align: center;
         font-size: 1.6rem;
-
-        margin: 0.4rem 0;
       }
     }
 
-    div {
-      button {
-        background-color: transparent;
-        border: 0.2rem solid var(--primaryDIVI);
-        border-radius: 0.4rem;
-        color: var(--primaryDIVI);
-        
-        padding: 0.8rem;
-        margin: 1.6rem 0.8rem 0;
-        outline: none;
+    .OrderDetailSpan {
+      /* border: 0.2rem solid red; */
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      /* align-self: center; */
+      gap: 6rem;
 
-        transition: 0.2s;
 
-        :hover {
-          background-color: var(--primaryDIVI);
-          border: 0.2rem solid var(--primaryDIVI);
-          color: var(--textPrimaryDIVI);
-          cursor: pointer;
+      span {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        /* justify-content: center; */
+        margin-top: 0.8rem;
+        /* border: 0.2rem solid red; */
+
+        p {
+          color: var(--primaryDIVI);
+          font-size: 1.6rem;
+
+          margin: 0.4rem 0;
         }
+      }
+ 
+    }
+    
+    div {
+        button {
+          background-color: transparent;
+          border: 0.2rem solid var(--primaryDIVI);
+          border-radius: 0.4rem;
+          color: var(--primaryDIVI);
+          
+          padding: 0.8rem;
+          margin: 1.6rem 0.8rem 0;
+          outline: none;
 
-        :disabled {
-          color: var(--textPlaceholder);
+          transition: 0.2s;
 
           :hover {
-            background-color: transparent;
+            background-color: var(--primaryDIVI);
+            border: 0.2rem solid var(--primaryDIVI);
+            color: var(--textPrimaryDIVI);
+            cursor: pointer;
+          }
+
+          :disabled {
             color: var(--textPlaceholder);
-            cursor: no-drop;
+
+            :hover {
+              background-color: transparent;
+              color: var(--textPlaceholder);
+              cursor: no-drop;
+            }
           }
         }
-      }
 
-    }
+      }
 
   }
 `;
