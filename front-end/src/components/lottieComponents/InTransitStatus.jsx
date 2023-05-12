@@ -1,9 +1,10 @@
 import React from 'react';
 import Lottie from 'react-lottie';
+import PropType from 'prop-types';
 
 import inTransit from '../../img/lottieFiles/inTransit.json';
 
-function InTransitStatus() {
+function InTransitStatus({ component }) {
   const defaultOptions = {
     loop: true,
     autoplay: true,
@@ -13,10 +14,15 @@ function InTransitStatus() {
   return (
     <Lottie
       options={ defaultOptions }
-      width={ 350 }
-      height={ 250 }
+      width={ (component === 'OrderDetail') ? '350px' : '250px' }
+      height={ (component === 'OrderDetail') ? '190px' : '150px' }
+      style={ { margin: '-1.6rem 0' } }
     />
   );
 }
+
+InTransitStatus.propTypes = {
+  component: PropType.string.isRequired,
+};
 
 export default InTransitStatus;
