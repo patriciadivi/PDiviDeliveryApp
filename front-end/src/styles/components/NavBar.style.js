@@ -11,11 +11,44 @@ const NavBarSComponent = styled.section`
     display: flex;
     align-items: center;
     flex-direction: row;
-    justify-content: space-around;
-    outline: none;
-    width: 100%;
-    height: 5rem;
+    justify-content: space-between;
+
     background-color: var(--secundaryDIVI);
+    padding: 0 2.4rem 0 1.6rem;
+    outline: none;
+
+    width: 100%;
+    height: 6rem;
+
+    .logo {
+      /* border: 1px solid red; */
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 2.4rem;
+      width: 1.6rem;
+      /* max-height: fit-content; */
+
+        &:hover {
+        border-radius: 0.2rem;
+        background-color: var(--secundaryDIVI);
+        height: 2.4rem;
+        width: 1.6rem;
+        /* padding: 1.7rem 2.2rem; */
+      }
+
+      div {
+        height: 5.6rem;
+        /* border: 1px solid green; */
+        background-color: var(--secundaryDIVI);
+
+
+        img {
+          /* border: 1px solid black; */
+          height: 56px;
+        }
+      }
+    }
 
     div {
       a {
@@ -31,7 +64,7 @@ const NavBarSComponent = styled.section`
     span {
       color: white;
       font-size: 2rem;
-      padding: 1.7rem;
+      padding: 2.4rem;
       background-color: var(--primaryDIVI);
     }
 
