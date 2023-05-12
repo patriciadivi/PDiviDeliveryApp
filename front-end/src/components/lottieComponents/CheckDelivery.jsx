@@ -1,8 +1,8 @@
 /* eslint-disable react/jsx-curly-spacing */
 import React from 'react';
 import Lottie from 'react-lottie';
-
 import PropType from 'prop-types';
+
 import CheckDelivery from '../../img/lottieFiles/checkDelivery.json';
 
 function CheckAnimation({ component }) {
@@ -11,12 +11,12 @@ function CheckAnimation({ component }) {
     autoplay: true,
     animationData: CheckDelivery,
   };
-  // { console.log('----> page', page); }
+
   return (
     <Lottie
       options={defaultOptions}
-      width={ (component === 'OrderDetail') ? '180px' : '250px' }
-      height={ (component === 'OrderDetail') ? '160px' : '150px' }
+      width={ (component === 'OrderDetail') ? '150px' : '250px' }
+      height={ (component === 'OrderDetail') ? '130px' : '150px' }
     />
   );
 }

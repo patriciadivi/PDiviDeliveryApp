@@ -14,8 +14,8 @@ function PreparingStatus({ component }) {
   return (
     <Lottie
       options={ defaultOptions }
-      width={ (component === 'OrderDetail') ? '350px' : '250px' }
-      height={ (component === 'OrderDetail') ? '160px' : '150px' }
+      width={ (component === 'OrderDetail') ? '150px' : '250px' }
+      height={ (component === 'OrderDetail') ? '130px' : '150px' }
       style={ { margin: '0.8rem 0' } }
     />
   );

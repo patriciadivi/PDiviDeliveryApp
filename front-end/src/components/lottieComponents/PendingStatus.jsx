@@ -16,8 +16,9 @@ function PendingStatus({ component }) {
   return (
     <Lottie
       options={ defaultOptions }
-      width={ (component === 'OrderDetail') ? '250px' : '230px' }
-      height={ (component === 'OrderDetail') ? '220px' : '250px' }
+      width={ (component === 'OrderDetail') ? '350px' : '250px' }
+      height={ (component === 'OrderDetail') ? '160px' : '150px' }
+
     />
   );
 }

@@ -11,30 +11,53 @@ function SwitchAnimation({ status, component }) {
   case 'Pendente':
     return (
       <article>
-        {`--AQUI--> ${component}`}
         <PendingStatus component={ component } />
-        <p>Seu pedido está PENDENTE.</p>
+        <p>
+          Seu pedido está
+          {' '}
+          <strong>PENDENTE.</strong>
+          {' '}
+        </p>
       </article>
     );
   case 'Preparando':
     return (
       <article>
         <PreparingStatus component={ component } />
-        <p>Seu pedido está sendo PREPARANDO</p>
+        <p>
+          Seu pedido está sendo
+          {' '}
+          <strong>PREPARANDO</strong>
+          .
+          {' '}
+        </p>
       </article>
     );
   case 'Em Trânsito':
     return (
       <article>
-        <InTransitStatus />
-        <p>Seu pedido foi enviado e está EM TRANSITO!</p>
+        <InTransitStatus component={ component } />
+        <p>
+          Seu pedido foi enviado e está a
+          {' '}
+          <strong>CAMINHO</strong>
+          {' '}
+          do local!
+        </p>
       </article>
     );
   case 'Entregue':
     return (
       <article>
         <CheckAnimation component={ component } />
-        <p>Seu pedido foi ENTREGUE com sucesso! </p>
+        <p>
+          Seu pedido foi
+          {' '}
+          <strong>ENTREGUE</strong>
+          {' '}
+          com sucesso!
+          {' '}
+        </p>
       </article>
     );
   default:
