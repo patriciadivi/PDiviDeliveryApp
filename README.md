@@ -17,11 +17,73 @@
 
  ## 💻 Sobre o projeto
   <h3>
-    O projeto deliveryApp é uma plataforma que permite</br>
-  os usuários fazerem pedidos, realizarem o pagamento e</br>
-  acompanhar todo o processo de entrega, sem sair de casa</br>
+  O projeto é uma plataforma de delivery de bebidas, seu intuito é</br>
+  trazer a paticidade na compra de suas bebidas favoritas,</br>
+  tornando a vida dos usuários.
+
+  </br>
+  </br>
+  Esse projeto conta com acesso para 3 tipos de usuários.</br>
+  
+  </br>
+  1° Cliente</br> 
+  Os clientes podem fazer pedidos, informarem o endereço de entrega</br> 
+  e acompanhar todo o processo de entrega, sem sair de casa.</br>
   Tendo assim a praticidade das suas bebedidas favoritas na</br>
-  palma da sua mão.
+  palma da sua mão.</br>
+  <details align="left">
+  <summary>  Clique aqui para saber mais </summary>
+  </br>
+
+  ```Bash
+
+                         >   Acessos para o 'Cliente'   <
+
+        --- Login ---                     |               --- Senha ---
+  zebirita@email.com              |               $#zebirita#$
+
+  ```
+  </details>
+  
+  </br>
+  2° Vendedores</br>
+  Os vendedores contam com a lista de todos os pedidos realizados,</br>
+  e para cada pedido temos uma descrição mais completa da ordem.</br>
+  Além de conseguirem passar o status da ordem realizada, ao cliente.
+  <details align="left">
+  <summary>  Clique aqui para saber mais </summary>
+  </br>
+
+  ```Bash
+
+                         >   Acessos para o 'Vendedores'   <
+
+          --- Login ---                           |               --- Senha ---
+  fulana@deliveryapp.com              |               fulana@123
+
+  ```
+  </details>
+
+  </br>
+  3° Administrador</br>
+  O Administrador conta com o gerenciamento de todos os usuários,</br>
+  tendo assim o controle de excluir e adicionar usuários entre outros.
+  <details align="left">
+  <summary>  Clique aqui para saber mais </summary>
+  </br>
+
+  ```Bash
+
+                         >   Acessos para o 'Administrador'   <
+
+          --- Login ---                        |               --- Senha ---
+  adm@deliveryapp.com              |               --adm2@21!!--
+
+  ```
+  </details>
+
+  </br>
+  </br>
   </h3>
  
   </br>
