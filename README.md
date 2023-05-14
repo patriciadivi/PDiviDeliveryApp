@@ -40,7 +40,7 @@
 
                          >   Acessos para o 'Cliente'   <
 
-        --- Login ---                     |               --- Senha ---
+     --- Login ---                |               --- Senha ---
   zebirita@email.com              |               $#zebirita#$
 
   ```
