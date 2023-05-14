@@ -1,8 +1,9 @@
 <div align="center">
 <h1 fontsize="80px">Bem vindo ao repositório DeliveryApp! 📋</h1>
   </br>
-  <video controls autoplay loop muted markdown="1" src="https://github.com/patriciadivi/PDiviDeliveryApp/assets/38478917/0b494f7c-d658-4b92-bac4-a5a389627367" alt="Imagem representativa da aplicação" ></video>
-  
+
+   <img controls autoplay loop muted markdown="1" src="https://github.com/patriciadivi/PDiviDeliveryApp/assets/38478917/fdfa482f-2b5f-4cb2-a8e4-c26f90b2088a" alt="Video representativa da aplicação" >
+   
   <h4 align="center"> 
 	🚧  DeliveryApp ♻️ Em Desenvolvimento 🚀 🚧
   </h4>
@@ -43,6 +44,8 @@
   zebirita@email.com              |               $#zebirita#$
 
   ```
+  
+   <video controls autoplay loop muted markdown="0" src="https://github.com/patriciadivi/PDiviDeliveryApp/assets/38478917/92d8944e-848a-48f7-936b-9a5a1ef43b5e" alt="Imagem representativa da aplicação" ></video>
   </details>
   
   </br>
@@ -62,6 +65,8 @@
   fulana@deliveryapp.com              |               fulana@123
 
   ```
+    <video controls autoplay loop muted markdown="1" src="43b5e" alt="Imagem representativa da aplicação" ></video>
+  
   </details>
 
   </br>
@@ -80,6 +85,9 @@
   adm@deliveryapp.com              |               --adm2@21!!--
 
   ```
+  
+  </br>
+  <video controls autoplay loop muted markdown="1" src="https://github.com/patriciadivi/PDiviDeliveryApp/assets/38478917/0b494f7c-d658-4b92-bac4-a5a389627367" alt="Imagem representativa da aplicação" ></video>
   </details>
 
   </br>
