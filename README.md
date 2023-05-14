@@ -65,7 +65,8 @@
   fulana@deliveryapp.com              |                fulana@123
 
   ```
-    <video controls autoplay loop muted markdown="1" src="43b5e" alt="Imagem representativa da aplicação" ></video>
+   
+   <video controls autoplay loop muted markdown="1" src="https://github.com/patriciadivi/PDiviDeliveryApp/assets/38478917/3d46763b-f895-4b86-ac17-75788d5e537c" alt="Imagem representativa da aplicação" ></video>
   
   </details>
 
