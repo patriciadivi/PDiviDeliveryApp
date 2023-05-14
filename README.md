@@ -19,8 +19,8 @@
  ## 💻 Sobre o projeto
   <h3>
   O projeto é uma plataforma de delivery de bebidas, seu intuito é</br>
-  trazer a paticidade na compra de suas bebidas favoritas,</br>
-  tornando a vida dos usuários.
+  trazer a praticidade na compra de suas bebidas favoritas,</br>
+  tornando a vida dos usuários mais agradável.
 
   </br>
   </br>
@@ -30,7 +30,7 @@
   1° Cliente</br> 
   Os clientes podem fazer pedidos, informarem o endereço de entrega</br> 
   e acompanhar todo o processo de entrega, sem sair de casa.</br>
-  Tendo assim a praticidade das suas bebedidas favoritas na</br>
+  Tendo assim a praticidade das suas bedidas favoritas na</br>
   palma da sua mão.</br>
   <details align="left">
   <summary>  Clique aqui para saber mais </summary>
@@ -73,7 +73,7 @@
   </br>
   3° Administrador</br>
   O Administrador conta com o gerenciamento de todos os usuários,</br>
-  tendo assim o controle de excluir e adicionar usuários entre outros.
+  tendo assim o controle de excluir e adicionar usuários.
   <details align="left">
   <summary>  Clique aqui para saber mais </summary>
   </br>
