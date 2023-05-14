@@ -38,10 +38,10 @@
 
   ```Bash
 
-                         >   Acessos para o 'Cliente'   <
+                 >   Acessos para o 'Cliente'   <
 
-     --- Login ---                |               --- Senha ---
-  zebirita@email.com              |               $#zebirita#$
+     --- Login ---                |             --- Senha ---
+  zebirita@email.com              |             $#zebirita#$
 
   ```
   
@@ -59,10 +59,10 @@
 
   ```Bash
 
-                         >   Acessos para o 'Vendedores'   <
+                      >   Acessos para o 'Vendedores'   <
 
-          --- Login ---                           |               --- Senha ---
-  fulana@deliveryapp.com              |               fulana@123
+       --- Login ---                  |               --- Senha ---
+  fulana@deliveryapp.com              |                fulana@123
 
   ```
     <video controls autoplay loop muted markdown="1" src="43b5e" alt="Imagem representativa da aplicação" ></video>
@@ -79,9 +79,9 @@
 
   ```Bash
 
-                         >   Acessos para o 'Administrador'   <
+                >   Acessos para o 'Administrador'   <
 
-          --- Login ---                        |               --- Senha ---
+     --- Login ---                 |               --- Senha ---
   adm@deliveryapp.com              |               --adm2@21!!--
 
   ```
