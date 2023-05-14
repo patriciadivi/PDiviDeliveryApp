@@ -1,7 +1,7 @@
 <div align="center">
 <h1 fontsize="80px">Bem vindo ao repositório DeliveryApp! 📋</h1>
   </br>
-  <img src="khj" alt="Imagem representativa da aplicação"/>
+  <video controls loop autoplay src="https://github.com/patriciadivi/PDiviDeliveryApp/assets/38478917/51212b3d-4a14-44e3-a7fb-493a169b2b34.mp4" alt="Imagem representativa da aplicação" />
   
   <h4 align="center"> 
 	🚧  DeliveryApp ♻️ Em Desenvolvimento 🚀 🚧
